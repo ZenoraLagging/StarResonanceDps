@@ -44,7 +44,7 @@ namespace StarResonanceDpsAnalysis.Forms
             if (AppConfig.GetConfigExists())
             {
                 AppConfig.ClearPicture = AppConfig.GetValue("UserConfig", "ClearPicture", "1").ToInt();
-                AppConfig.NickName = AppConfig.GetValue("UserConfig", "NickName", "未知");
+                AppConfig.NickName = AppConfig.GetValue("UserConfig", "NickName", Properties.Strings.User_Nickname);
                 AppConfig.Uid = (ulong)AppConfig.GetValue("UserConfig", "Uid", "0").ToInt();
                 AppConfig.Profession = AppConfig.GetValue("UserConfig", "Profession", Properties.Strings.Profession_Unknown);
                 AppConfig.CombatPower = AppConfig.GetValue("UserConfig", "CombatPower", "0").ToInt();

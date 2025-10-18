@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="button_AlwaysOnTop.IconSvg" xml:space="preserve">
+    <value>&lt;svg t="1755048195822" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11049" width="200" height="200"&gt;&lt;path d="M555.5 151.4l303.2 353.1c16 18.6 19.5 44 9.3 66.3-10.2 22.3-31.8 36.1-56.3 36.1H700.5v271.3c0 52.9-43.1 96-96 96h-192c-52.9 0-96-43.1-96-96V606.9H205.3c-24.5 0-46.1-13.8-56.3-36.1-10.2-22.3-6.7-47.7 9.3-66.3l303.2-353.1c11.8-13.7 28.9-21.6 47-21.6s35.2 7.9 47 21.6z m-175 391.5v335.3c0 17.6 14.4 32 32 32h192c17.6 0 32-14.4 32-32V542.9h170.8l-298.8-348-298.8 348h170.8zM860.5 118.9h-704c-17.7 0-32-14.3-32-32s14.3-32 32-32h704c17.7 0 32 14.3 32 32s-14.3 32-32 32z" p-id="11050" fill="#ffffff"&gt;&lt;/path&gt;&lt;/svg&gt;</value>
+  </data>
+  <data name="button_AlwaysOnTop.ToggleIconSvg" xml:space="preserve">
+    <value>&lt;svg t="1755048207694" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12096" width="200" height="200"&gt;&lt;path d="M256 938.666667a42.666667 42.666667 0 1 1 0-85.333334h512a42.666667 42.666667 0 0 1 0 85.333334H256z m256-205.994667L291.328 512H426.666667V384a42.666667 42.666667 0 1 0-85.333334 0v42.666667H291.328c-75.989333 0-114.090667 91.904-60.330667 145.664l220.672 220.672a85.333333 85.333333 0 0 0 120.661334 0l220.672-220.672c53.76-53.76 15.658667-145.664-60.330667-145.664H682.666667V213.333333a85.333333 85.333333 0 0 0-85.333334-85.333333h-170.666666a85.333333 85.333333 0 0 0-85.333334 85.333333 42.666667 42.666667 0 1 0 85.333334 0h170.666666v298.666667H732.672L512 732.672z" fill="#ffffff" p-id="12097"&gt;&lt;/path&gt;&lt;/svg&gt;</value>
+  </data>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="tooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>105, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

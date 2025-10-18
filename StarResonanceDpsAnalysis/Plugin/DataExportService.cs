@@ -9,13 +9,13 @@ namespace StarResonanceDpsAnalysis.Plugin
     /// </summary>
     public static class DataExportService
     {
-        #region Excelµ¼³ö
+        #region Excelµ¼³E
 
         /// <summary>
         /// µ¼³öDPSÊı¾İµ½ExcelÎÄ¼ş
         /// </summary>
-        /// <param name="players">Íæ¼ÒÊı¾İÁĞ±í</param>
-        /// <param name="includeSkillDetails">ÊÇ·ñ°üº¬¼¼ÄÜÏêÇé</param>
+        /// <param name="players">Íæ¼ÒÊı¾İÁĞ±E/param>
+        /// <param name="includeSkillDetails">ÊÇ·ñ°E¬¼¼ÄÜÏEE/param>
         /// <returns>ÊÇ·ñµ¼³ö³É¹¦</returns>
         public static bool ExportToExcel(List<PlayerData> players, bool includeSkillDetails = true)
         {
@@ -34,15 +34,15 @@ namespace StarResonanceDpsAnalysis.Plugin
 
                 using var workbook = new XLWorkbook();
 
-                // ´´½¨Íæ¼Ò×ÜÀÀ±í
+                // ´´½¨Íæ¼Ò×ÜÀÀ±E
                 CreatePlayerOverviewSheet(workbook, players);
 
                 if (includeSkillDetails)
                 {
-                    // ´´½¨¼¼ÄÜÏêÇé±í
+                    // ´´½¨¼¼ÄÜÏEé±E
                     CreateSkillDetailsSheet(workbook, players);
 
-                    // ´´½¨ÍÅ¶Ó¼¼ÄÜÍ³¼Æ±í
+                    // ´´½¨ÍÅ¶Ó¼¼ÄÜÍ³¼Æ±E
                     CreateTeamSkillStatsSheet(workbook, players);
                 }
 
@@ -55,27 +55,27 @@ namespace StarResonanceDpsAnalysis.Plugin
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"µ¼³öExcelÎÄ¼şÊ±·¢Éú´íÎó:\n{ex.Message}", "µ¼³öÊ§°Ü",
+                MessageBox.Show($"µ¼³öExcelÎÄ¼şÊ±·¢Éú´úêE\n{ex.Message}", "µ¼³öÊ§°Ü",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
 
         /// <summary>
-        /// ´´½¨Íæ¼Ò×ÜÀÀ¹¤×÷±í
+        /// ´´½¨Íæ¼Ò×ÜÀÀ¹¤×÷±E
         /// </summary>
         private static void CreatePlayerOverviewSheet(XLWorkbook workbook, List<PlayerData> players)
         {
             var worksheet = workbook.Worksheets.Add("Íæ¼Ò×ÜÀÀ");
 
-            // ÉèÖÃ±íÍ·
+            // ÉèÖÃ±úé·
             var headers = new[]
             {
-                "Íæ¼ÒêÇ³Æ", "Ö°Òµ", "Õ½Á¦", "×ÜÉËº¦", "×ÜDPS", "±©»÷ÉËº¦", "ĞÒÔËÉËº¦",
-                "±©»÷ÂÊ", "ĞÒÔËÂÊ", "Ë²Ê±DPS·åÖµ", "×ÜÖÎÁÆ", "×ÜHPS", "³ĞÊÜÉËº¦", "ÃüÖĞ´ÎÊı"
+                "Íæ¼ÒE³Æ", "Ö°Òµ", "Õ½Á¦", "×ÜÉËº¦", "×ÜDPS", "±©»÷ÉËº¦", "ĞÒÔËÉËº¦",
+                "±©»÷ÂÊ", "ĞÒÔËÂÊ", "Ë²Ê±DPS·åÖµ", "×ÜÖÎÁÆ", "×ÜHPS", "³ĞÊÜÉËº¦", "ÃEĞ´ÎÊı"
             };
 
-            // Ğ´Èë±íÍ·
+            // Ğ´ÈEúé·
             for (int i = 0; i < headers.Length; i++)
             {
                 worksheet.Cell(1, i + 1).Value = headers[i];
@@ -83,7 +83,7 @@ namespace StarResonanceDpsAnalysis.Plugin
                 worksheet.Cell(1, i + 1).Style.Fill.BackgroundColor = XLColor.LightBlue;
             }
 
-            // Ğ´ÈëÊı¾İ
+            // Ğ´ÈEı¾İ
             int row = 2;
             foreach (var player in players.OrderByDescending(p => p.DamageStats.Total))
             {
@@ -105,28 +105,28 @@ namespace StarResonanceDpsAnalysis.Plugin
                 row++;
             }
 
-            // ×Ô¶¯µ÷ÕûÁĞ¿í
+            // ×Ô¶¯µ÷ÕûÁĞ¿E
             worksheet.ColumnsUsed().AdjustToContents();
 
-            // Ìí¼ÓÉ¸Ñ¡
+            // ÌúØÓÉ¸Ñ¡
             worksheet.Range(1, 1, row - 1, headers.Length).SetAutoFilter();
         }
 
         /// <summary>
-        /// ´´½¨¼¼ÄÜÏêÇé¹¤×÷±í
+        /// ´´½¨¼¼ÄÜÏEé¹¤×÷±E
         /// </summary>
         private static void CreateSkillDetailsSheet(XLWorkbook workbook, List<PlayerData> players)
         {
-            var worksheet = workbook.Worksheets.Add("¼¼ÄÜÏêÇé");
+            var worksheet = workbook.Worksheets.Add("¼¼ÄÜÏEE");
 
-            // ÉèÖÃ±íÍ·
+            // ÉèÖÃ±úé·
             var headers = new[]
             {
-                "Íæ¼ÒêÇ³Æ", "¼¼ÄÜÃû³Æ", "×ÜÉËº¦", "ÃüÖĞ´ÎÊı", "Æ½¾ùÉËº¦",
+                "Íæ¼ÒE³Æ", "¼¼ÄÜÃû³Æ", "×ÜÉËº¦", "ÃEĞ´ÎÊı", "Æ½¾ùÉËº¦",
                 "±©»÷ÂÊ", "ĞÒÔËÂÊ", "¼¼ÄÜDPS", "ÉËº¦Õ¼±È"
             };
 
-            // Ğ´Èë±íÍ·
+            // Ğ´ÈEúé·
             for (int i = 0; i < headers.Length; i++)
             {
                 worksheet.Cell(1, i + 1).Value = headers[i];
@@ -134,7 +134,7 @@ namespace StarResonanceDpsAnalysis.Plugin
                 worksheet.Cell(1, i + 1).Style.Fill.BackgroundColor = XLColor.LightGreen;
             }
 
-            // Ğ´ÈëÊı¾İ
+            // Ğ´ÈEı¾İ
             int row = 2;
             foreach (var player in players.OrderByDescending(p => p.DamageStats.Total))
             {
@@ -157,16 +157,16 @@ namespace StarResonanceDpsAnalysis.Plugin
                 }
             }
 
-            // ×Ô¶¯µ÷ÕûÁĞ¿í
+            // ×Ô¶¯µ÷ÕûÁĞ¿E
             worksheet.ColumnsUsed().AdjustToContents();
 
-            // Ìí¼ÓÉ¸Ñ¡
+            // ÌúØÓÉ¸Ñ¡
             if (row > 2)
                 worksheet.Range(1, 1, row - 1, headers.Length).SetAutoFilter();
         }
 
         /// <summary>
-        /// ´´½¨ÍÅ¶Ó¼¼ÄÜÍ³¼Æ¹¤×÷±í
+        /// ´´½¨ÍÅ¶Ó¼¼ÄÜÍ³¼Æ¹¤×÷±E
         /// </summary>
         private static void CreateTeamSkillStatsSheet(XLWorkbook workbook, List<PlayerData> players)
         {
@@ -175,13 +175,13 @@ namespace StarResonanceDpsAnalysis.Plugin
             // »ñÈ¡ÍÅ¶Ó¼¼ÄÜÊı¾İ
             var teamSkills = StatisticData._manager.GetTeamTopSkillsByTotal(50);
 
-            // ÉèÖÃ±íÍ·
+            // ÉèÖÃ±úé·
             var headers = new[]
             {
-                "¼¼ÄÜÃû³Æ", "×ÜÉËº¦", "×ÜÃüÖĞ´ÎÊı", "ÍÅ¶ÓÕ¼±È"
+                "¼¼ÄÜÃû³Æ", "×ÜÉËº¦", "×ÜÃEĞ´ÎÊı", "ÍÅ¶ÓÕ¼±È"
             };
 
-            // Ğ´Èë±íÍ·
+            // Ğ´ÈEúé·
             for (int i = 0; i < headers.Length; i++)
             {
                 worksheet.Cell(1, i + 1).Value = headers[i];
@@ -189,10 +189,10 @@ namespace StarResonanceDpsAnalysis.Plugin
                 worksheet.Cell(1, i + 1).Style.Fill.BackgroundColor = XLColor.LightYellow;
             }
 
-            // ¼ÆËã×ÜÉËº¦ÓÃÓÚ°Ù·Ö±È¼ÆËã
+            // ¼ÆËã×ÜÉËº¦ÓÃÓÚ°Ù·Ö±È¼ÆËE
             ulong totalTeamDamage = (ulong)teamSkills.Sum(s => (double)s.Total);
 
-            // Ğ´ÈëÊı¾İ
+            // Ğ´ÈEı¾İ
             int row = 2;
             foreach (var skill in teamSkills)
             {
@@ -205,22 +205,22 @@ namespace StarResonanceDpsAnalysis.Plugin
                 row++;
             }
 
-            // ×Ô¶¯µ÷ÕûÁĞ¿í
+            // ×Ô¶¯µ÷ÕûÁĞ¿E
             worksheet.ColumnsUsed().AdjustToContents();
 
-            // Ìí¼ÓÉ¸Ñ¡
+            // ÌúØÓÉ¸Ñ¡
             if (row > 2)
                 worksheet.Range(1, 1, row - 1, headers.Length).SetAutoFilter();
         }
 
         #endregion
 
-        #region CSVµ¼³ö
+        #region CSVµ¼³E
 
         /// <summary>
         /// µ¼³öDPSÊı¾İµ½CSVÎÄ¼ş
         /// </summary>
-        /// <param name="players">Íæ¼ÒÊı¾İÁĞ±í</param>
+        /// <param name="players">Íæ¼ÒÊı¾İÁĞ±E/param>
         /// <returns>ÊÇ·ñµ¼³ö³É¹¦</returns>
         public static bool ExportToCsv(List<PlayerData> players)
         {
@@ -239,11 +239,11 @@ namespace StarResonanceDpsAnalysis.Plugin
 
                 var csv = new StringBuilder();
 
-                // Ìí¼ÓBOMÒÔÈ·±£ExcelÕıÈ·ÏÔÊ¾ÖĞÎÄ
+                // ÌúØÓBOMÒÔÈ·±£ExcelÕıÈ·ÏÔÊ¾ÖĞÎÄ
                 csv.Append('\uFEFF');
 
-                // CSV±íÍ·
-                csv.AppendLine("Íæ¼ÒêÇ³Æ,Ö°Òµ,Õ½Á¦,×ÜÉËº¦,×ÜDPS,±©»÷ÉËº¦,ĞÒÔËÉËº¦,±©»÷ÂÊ,ĞÒÔËÂÊ,Ë²Ê±DPS·åÖµ,×ÜÖÎÁÆ,×ÜHPS,³ĞÊÜÉËº¦,ÃüÖĞ´ÎÊı");
+                // CSV±úé·
+                csv.AppendLine("Íæ¼ÒE³Æ,Ö°Òµ,Õ½Á¦,×ÜÉËº¦,×ÜDPS,±©»÷ÉËº¦,ĞÒÔËÉËº¦,±©»÷ÂÊ,ĞÒÔËÂÊ,Ë²Ê±DPS·åÖµ,×ÜÖÎÁÆ,×ÜHPS,³ĞÊÜÉËº¦,ÃEĞ´ÎÊı");
 
                 // Êı¾İĞĞ
                 foreach (var player in players.OrderByDescending(p => p.DamageStats.Total))
@@ -273,21 +273,21 @@ namespace StarResonanceDpsAnalysis.Plugin
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"µ¼³öCSVÎÄ¼şÊ±·¢Éú´íÎó:\n{ex.Message}", "µ¼³öÊ§°Ü",
+                MessageBox.Show($"µ¼³öCSVÎÄ¼şÊ±·¢Éú´úêE\n{ex.Message}", "µ¼³öÊ§°Ü",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
 
         /// <summary>
-        /// ×ªÒåCSV×Ö¶ÎÖĞµÄÌØÊâ×Ö·û
+        /// ×ªÒåCSV×Ö¶ÎÖĞµÄÌØÊâ×Ö·E
         /// </summary>
         private static string EscapeCsvField(string field)
         {
             if (string.IsNullOrEmpty(field))
                 return "";
 
-            // Èç¹û°üº¬¶ººÅ¡¢ÒıºÅ»ò»»ĞĞ·û£¬ĞèÒªÓÃÒıºÅ°üÎ§²¢×ªÒåÄÚ²¿ÒıºÅ
+            // Èç¹û°E¬¶ººÅ¡¢ÒıºÅ»ò»»ĞĞ·û£¬ĞèÒªÓÃÒıºÅ°E§²¢×ªÒåÄÚ²¿ÒıºÅ
             if (field.Contains(',') || field.Contains('"') || field.Contains('\n') || field.Contains('\r'))
             {
                 return field.Replace("\"", "\"\"");
@@ -320,7 +320,7 @@ namespace StarResonanceDpsAnalysis.Plugin
                 if (saveDialog.ShowDialog() != DialogResult.OK)
                     return false;
 
-                // ´´½¨Óë´°¿Ú´óĞ¡ÏàÍ¬µÄÎ»Í¼
+                // ´´½¨ÓE°¿Ú´óĞ¡ÏàÍ¬µÄÎ»Í¼
                 var bounds = form.Bounds;
                 using var bitmap = new System.Drawing.Bitmap(bounds.Width, bounds.Height);
                 using var graphics = System.Drawing.Graphics.FromImage(bitmap);
@@ -328,7 +328,7 @@ namespace StarResonanceDpsAnalysis.Plugin
                 // ½ØÈ¡´°¿ÚÄÚÈİ
                 graphics.CopyFromScreen(bounds.Location, System.Drawing.Point.Empty, bounds.Size);
 
-                // ¸ù¾İÎÄ¼şÀ©Õ¹Ãû±£´æ
+                // ¸ù¾İÎÄ¼şÀ©Õ¹Ãû±£´E
                 var extension = Path.GetExtension(saveDialog.FileName).ToLower();
                 var format = extension switch
                 {
@@ -345,7 +345,7 @@ namespace StarResonanceDpsAnalysis.Plugin
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"±£´æ½ØÍ¼Ê±·¢Éú´íÎó:\n{ex.Message}", "½ØÍ¼Ê§°Ü",
+                MessageBox.Show($"±£´æ½ØÍ¼Ê±·¢Éú´úêE\n{ex.Message}", "½ØÍ¼Ê§°Ü",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -356,9 +356,9 @@ namespace StarResonanceDpsAnalysis.Plugin
         #region ¸¨Öú·½·¨
 
         /// <summary>
-        /// »ñÈ¡µ±Ç°ÓĞÕ½¶·Êı¾İµÄÍæ¼ÒÁĞ±í
+        /// »ñÈ¡µ±Ç°ÓĞÕ½¶·Êı¾İµÄÍæ¼ÒÁĞ±E
         /// </summary>
-        /// <returns>Íæ¼ÒÊı¾İÁĞ±í</returns>
+        /// <returns>Íæ¼ÒÊı¾İÁĞ±E/returns>
         public static List<PlayerData> GetCurrentPlayerData()
         {
             return StatisticData._manager
@@ -367,7 +367,7 @@ namespace StarResonanceDpsAnalysis.Plugin
         }
 
         /// <summary>
-        /// ¼ì²éÊÇ·ñÓĞÊı¾İ¿Éµ¼³ö
+        /// ¼EéÊÇ·ñÓĞÊı¾İ¿Éµ¼³E
         /// </summary>
         /// <returns>ÊÇ·ñÓĞÊı¾İ</returns>
         public static bool HasDataToExport()

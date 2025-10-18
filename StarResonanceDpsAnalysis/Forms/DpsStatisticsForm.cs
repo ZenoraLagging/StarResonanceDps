@@ -19,6 +19,7 @@ using Button = AntdUI.Button;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using Color = System.Drawing.Color;
 using StarResonanceDpsAnalysis.Forms.ModuleForm;
+using DocumentFormat.OpenXml.Drawing;
 
 namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代码所在位置
 { // 命名空间开始
@@ -84,7 +85,7 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
 
 
         // # 屏幕分辨率缩放判定
-        private static float GetPrimaryResolutionScale() // 依据主屏高度返回推荐缩放比例
+/*        private static float GetPrimaryResolutionScale() // 依据主屏高度返回推荐缩放比例
         {
             try // 防御：获取屏幕信息可能在某些环境异常
             { // try 开始
@@ -98,7 +99,7 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
                 return 1.0f; // 异常时安全返回 1.0（不缩放）
             } // catch 结束
         }
-
+*/
         // # 窗体加载事件：启动抓包
         private void DpsStatistics_Load(object sender, EventArgs e) // 窗体 Load 事件处理
         {
@@ -109,7 +110,7 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
             // 重置为上次关闭前的位置与大小
             SetStartupPositionAndSize();
 
-            EnsureTopMost();
+            //EnsureTopMost();
         }
 
         // # 列表选择变更 → 打开技能详情
@@ -151,10 +152,12 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
         // # 顶部：置顶窗口按钮
         private void button_AlwaysOnTop_Click(object sender, EventArgs e) // 置顶按钮点击事件
         {
-            TopMost = !TopMost; // 简化切换
-            FormManager.skillDetailForm.TopMost = TopMost;
 
-            button_AlwaysOnTop.Toggle = TopMost; // 同步按钮的视觉状态
+            TopMost = button_AlwaysOnTop.Toggle = !button_AlwaysOnTop.Toggle; // 同步按钮的视觉状态
+            button_AlwaysOnTop.OriginalBackColor = TopMost == true ? Color.Red : Color.Transparent;
+            Activate();
+            BringToFront();
+
         }
 
         #region 切换显示类型（支持单次/全程伤害） // 折叠：视图标签与切换逻辑
@@ -492,6 +495,11 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
                 AlwaysInjuredButton.Icon = Common.BytesToImage(Properties.Resources.承伤);
                 NpcTakeDamageButton.Icon = Common.BytesToImage(Properties.Resources.Npc);
                 Color colorWhite = Color.FromArgb(223, 223, 223);
+
+                pageHeader1.BackColor = colorWhite;
+                pageHeader1.ColorScheme = TAMode.Light;
+                PilingModeCheckbox.ForeColor = Color.Black;
+
                 foreach (var item in buttonList)
                 {
                     item.DefaultBack = Color.FromArgb(247, 247, 247);
@@ -528,6 +536,11 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
                 AlwaysInjuredButton.Icon = Common.BytesToImage(Properties.Resources.承伤白色);
                 NpcTakeDamageButton.Icon = Common.BytesToImage(Properties.Resources.NpcWhite);
                 Color colorBack = Color.FromArgb(60, 60, 60);
+
+                pageHeader1.BackColor = colorBack;
+                pageHeader1.ColorScheme = TAMode.Dark;
+                PilingModeCheckbox.ForeColor = Color.White;
+
                 foreach (var item in buttonList)
                 {
                     item.DefaultBack = Color.FromArgb(27, 27, 27);
@@ -590,7 +603,7 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
         private void SetStartupPositionAndSize()
         {
             var startupRect = AppConfig.StartUpState;
-            if (startupRect != null && startupRect != Rectangle.Empty)
+            if (startupRect != null && startupRect != System.Drawing.Rectangle.Empty)
             {
                 Left = startupRect.Value.Left;
                 Top = startupRect.Value.Top;
@@ -664,14 +677,14 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
 
         }
 
-        private void EnsureTopMost()
+/*        private void EnsureTopMost()
         {
             TopMost = false;   // 先关再开，强制触发样式刷新
             TopMost = true;
             Activate();
             BringToFront();
             button_AlwaysOnTop.Toggle = TopMost; // 同步你的按钮状态
-        }
+        }*/
 
         private void DamageType_Click(object sender, EventArgs e)
         {
@@ -735,7 +748,7 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
 
         private void DpsStatisticsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            AppConfig.StartUpState = new Rectangle(Left, Top, Width, Height);
+            AppConfig.StartUpState = new System.Drawing.Rectangle(Left, Top, Width, Height);
         }
 
         /// <summary>

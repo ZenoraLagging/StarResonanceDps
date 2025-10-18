@@ -54,7 +54,7 @@
             pageHeader1.MaximizeBox = false;
             pageHeader1.Mode = AntdUI.TAMode.Dark;
             pageHeader1.Name = "pageHeader1";
-            pageHeader1.Size = new Size(549, 38);
+            pageHeader1.Size = new Size(540, 38);
             pageHeader1.TabIndex = 30;
             pageHeader1.Text = "";
             // 

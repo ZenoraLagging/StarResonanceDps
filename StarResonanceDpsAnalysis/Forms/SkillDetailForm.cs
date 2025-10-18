@@ -129,15 +129,15 @@ namespace StarResonanceDpsAnalysis.Control
 
             ApplyLocalization();
 
-            EnsureTopMost();
+            //EnsureTopMost();
         }
-        private void EnsureTopMost()
-        {
-            TopMost = false;   // 先关再开，强制触发样式刷新
-            TopMost = true;
-            Activate();
-            // BringToFront();
-        }
+        /*        private void EnsureTopMost()
+                {
+                    TopMost = false;   // 先关再开，强制触发样式刷新
+                    TopMost = true;
+                    Activate();
+                    // BringToFront();
+                }*/
 
         /// <summary>
         /// 设置折线图刷新回调（避免重复代码）
@@ -640,6 +640,26 @@ namespace StarResonanceDpsAnalysis.Control
         private void LevelLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        // # 通用提示气泡工具
+
+        private void ToolTip(System.Windows.Forms.Control control, string text) // 通用封装：在指定控件上显示提示文本
+        {
+            tooltip.SetTip(control, text); // 在目标控件上显示指定文本提示
+        }
+
+        private void button_AlwaysOnTop_Click(object sender, EventArgs e)
+        {
+            TopMost = button_AlwaysOnTop.Toggle = !button_AlwaysOnTop.Toggle; // 同步按钮的视觉状态
+            button_AlwaysOnTop.OriginalBackColor = TopMost == true ? Color.Red : Color.Transparent;
+            Activate();
+            BringToFront();
+        }
+
+        private void button_AlwaysOnTop_MouseEnter(object sender, EventArgs e)
+        {
+            ToolTip(button_AlwaysOnTop, Properties.Strings.Tooltip_AlwaysOnTop); // 显示“置顶窗口”的气泡提示
         }
     }
 }

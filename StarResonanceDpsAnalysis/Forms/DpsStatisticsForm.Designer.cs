@@ -72,7 +72,7 @@ namespace StarResonanceDpsAnalysis.Forms
             pageHeader1.DividerShow = true;
             pageHeader1.DividerThickness = 2F;
             pageHeader1.Dock = DockStyle.Top;
-            pageHeader1.Font = new Font("SAO Welcome TT", 8.999999F, FontStyle.Bold);
+            pageHeader1.Font = new Font("Microsoft Sans Serif", 8.999999F, FontStyle.Bold);
             pageHeader1.ForeColor = Color.White;
             pageHeader1.Location = new Point(0, 0);
             pageHeader1.Margin = new Padding(2);
@@ -92,11 +92,11 @@ namespace StarResonanceDpsAnalysis.Forms
             PilingModeCheckbox.AutoSizeMode = TAutoSize.Width;
             PilingModeCheckbox.BackColor = Color.Transparent;
             PilingModeCheckbox.Dock = DockStyle.Right;
-            PilingModeCheckbox.Font = new Font("Alimama ShuHeiTi", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            PilingModeCheckbox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
             PilingModeCheckbox.ForeColor = Color.White;
-            PilingModeCheckbox.Location = new Point(305, 0);
+            PilingModeCheckbox.Location = new Point(318, 0);
             PilingModeCheckbox.Name = "PilingModeCheckbox";
-            PilingModeCheckbox.Size = new Size(100, 25);
+            PilingModeCheckbox.Size = new Size(87, 25);
             PilingModeCheckbox.TabIndex = 17;
             PilingModeCheckbox.Text = "打桩模式";
             PilingModeCheckbox.TextAlign = ContentAlignment.MiddleCenter;
@@ -141,7 +141,7 @@ namespace StarResonanceDpsAnalysis.Forms
             button3.Icon = Properties.Resources.handoff_normal;
             button3.IconHover = Properties.Resources.handoff_hover;
             button3.IconRatio = 0.8F;
-            button3.Location = new Point(227, 0);
+            button3.Location = new Point(231, 0);
             button3.Name = "button3";
             button3.Size = new Size(23, 25);
             button3.TabIndex = 19;
@@ -150,7 +150,6 @@ namespace StarResonanceDpsAnalysis.Forms
             // 
             // button_AlwaysOnTop
             // 
-            button_AlwaysOnTop.ColorScheme = TAMode.Dark;
             button_AlwaysOnTop.Dock = DockStyle.Right;
             button_AlwaysOnTop.Ghost = true;
             button_AlwaysOnTop.IconRatio = 0.8F;
@@ -160,6 +159,7 @@ namespace StarResonanceDpsAnalysis.Forms
             button_AlwaysOnTop.Size = new Size(22, 25);
             button_AlwaysOnTop.TabIndex = 5;
             button_AlwaysOnTop.ToggleIconSvg = resources.GetString("button_AlwaysOnTop.ToggleIconSvg");
+            button_AlwaysOnTop.ToggleType = TTypeMini.Default;
             button_AlwaysOnTop.Click += button_AlwaysOnTop_Click;
             button_AlwaysOnTop.MouseEnter += button_AlwaysOnTop_MouseEnter;
             // 
@@ -215,7 +215,7 @@ namespace StarResonanceDpsAnalysis.Forms
             // label2
             // 
             label2.Dock = DockStyle.Right;
-            label2.Font = new Font("Alimama ShuHeiTi", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
             label2.Location = new Point(394, 3);
             label2.Name = "label2";
             label2.Size = new Size(133, 31);
@@ -226,7 +226,7 @@ namespace StarResonanceDpsAnalysis.Forms
             // BattleTimeText
             // 
             BattleTimeText.Dock = DockStyle.Left;
-            BattleTimeText.Font = new Font("Alimama ShuHeiTi", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            BattleTimeText.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
             BattleTimeText.Location = new Point(38, 3);
             BattleTimeText.Margin = new Padding(2);
             BattleTimeText.Name = "BattleTimeText";
@@ -237,7 +237,7 @@ namespace StarResonanceDpsAnalysis.Forms
             // label1
             // 
             label1.Dock = DockStyle.Left;
-            label1.Font = new Font("Alimama ShuHeiTi", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            label1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
             label1.Location = new Point(0, 3);
             label1.Margin = new Padding(2);
             label1.Name = "label1";
@@ -355,11 +355,11 @@ namespace StarResonanceDpsAnalysis.Forms
             // tooltip
             // 
             tooltip.ArrowAlign = TAlign.TL;
-            tooltip.Font = new Font("HarmonyOS Sans SC", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tooltip.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             // 
             // DpsStatisticsForm
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
             BorderWidth = 0;
@@ -368,7 +368,7 @@ namespace StarResonanceDpsAnalysis.Forms
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(pageHeader1);
-            Font = new Font("HarmonyOS Sans SC", 8F);
+            Font = new Font("Microsoft Sans Serif", 8F);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
             Name = "DpsStatisticsForm";

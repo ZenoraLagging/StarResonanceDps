@@ -133,7 +133,7 @@ namespace StarResonanceDpsAnalysis.Forms
             button3.Name = "button3";
             button3.Size = new Size(153, 50);
             button3.TabIndex = 34;
-            button3.Text = "ø™ ººÏ≤‚—≠ª∑";
+            button3.Text = "ø™ ººÅE‚—≠ª∑";
             button3.Type = AntdUI.TTypeMini.Primary;
             // 
             // button4
@@ -161,7 +161,7 @@ namespace StarResonanceDpsAnalysis.Forms
             MaximizeBox = false;
             Name = "SkillRotationMonitorForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "ººƒ‹ Õ∑≈—≠ª∑º‡≤‚";
+            Text = "ººƒ‹ Õ∑≈—≠ª∑º‡≤ÅE";
             pageHeader1.ResumeLayout(false);
             panel6.ResumeLayout(false);
             ResumeLayout(false);

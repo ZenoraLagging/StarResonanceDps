@@ -855,4 +855,10 @@
   <data name="SkillDetail_HitCount" xml:space="preserve">
     <value>命中次数</value>
   </data>
+  <data name="App_Name" xml:space="preserve">
+    <value>别查我DPS</value>
+  </data>
+  <data name="User_Nickname" xml:space="preserve">
+    <value>未知</value>
+  </data>
 </root>

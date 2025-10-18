@@ -7,7 +7,7 @@ using SystemPanel = System.Windows.Forms.Panel;
 namespace StarResonanceDpsAnalysis.Forms
 {
     /// <summary>
-    /// ÊµÊ±Í¼±í´°¿Ú - Ê¹ÓÃ±âÆ½»¯×Ô¶¨ÒåÍ¼±í¿Ø¼ş£¬×Ô¶¯¼ÓÔØËùÓĞÍ¼±í
+    /// ÊµÊ±Í¼±úĞ°¿Ú - Ê¹ÓÃ±âÆ½»¯×Ô¶¨ÒåÍ¼±úÛØ¼ş£¬×Ô¶¯¼ÓÔØËùÓĞÍ¼±E
     /// </summary>
     public partial class RealtimeChartsForm : BorderlessForm
     {
@@ -38,20 +38,20 @@ namespace StarResonanceDpsAnalysis.Forms
             InitializeComponent();
             FormGui.SetDefaultGUI(this);
 
-            Text = "ÊµÊ±Í¼±í¿ÉÊÓ»¯";
+            Text = "ÊµÊ±Í¼±úÛÉÊÓ»¯";
             Size = new Size(1000, 700);
             StartPosition = FormStartPosition.CenterScreen;
 
-            // ÉèÖÃ±ê×¼×ÖÌå
+            // ÉèÖÃ±E¼×ÖÌE
             Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Regular);
 
             InitializeControls();
             InitializeAutoRefreshTimer();
 
-            // Ó¦ÓÃµ±Ç°Ö÷Ìâ
+            // Ó¦ÓÃµ±Ç°Ö÷ÌE
             RefreshChartsTheme();
 
-            // ×Ô¶¯¼ÓÔØËùÓĞÍ¼±í
+            // ×Ô¶¯¼ÓÔØËùÓĞÍ¼±E
             LoadAllCharts();
 
             // Ä¬ÈÏÆôÓÃ×Ô¶¯Ë¢ĞÂ
@@ -78,10 +78,10 @@ namespace StarResonanceDpsAnalysis.Forms
                 Height = 50,
                 Dock = DockStyle.Top,
                 Padding = new Padding(10, 5, 10, 5),
-                Cursor = Cursors.SizeAll // ÏÔÊ¾¿ÉÒÆ¶¯¹â±ê
+                Cursor = Cursors.SizeAll // ÏÔÊ¾¿ÉÒÆ¶¯¹â±E
             };
 
-            // ÎªÍÏ¶¯Ãæ°åÌí¼ÓÊó±êÊÂ¼ş
+            // ÎªÍÏ¶¯Ãæ°åÌúØÓÊó±EÂ¼ş
             _draggablePanel.MouseDown += DraggablePanel_MouseDown;
             _draggablePanel.MouseMove += DraggablePanel_MouseMove;
             _draggablePanel.MouseUp += DraggablePanel_MouseUp;
@@ -121,14 +121,14 @@ namespace StarResonanceDpsAnalysis.Forms
             _draggablePanel.Controls.Add(_autoRefreshToggle);
             _draggablePanel.Controls.Add(_closeButton);
 
-            // ´´½¨Ñ¡Ïî¿¨¿Ø¼ş
+            // ´´½¨Ñ¡ÏûÛ¨¿Ø¼ş
             _tabControl = new Tabs
             {
                 Dock = DockStyle.Fill,
                 Font = Font
             };
 
-            // Ìí¼ÓTabPage - ´¿ÎÄ±¾±êÌâ
+            // ÌúØÓTabPage - ´¿ÎÄ±¾±EE
             _tabControl.Pages.Add(new AntdUI.TabPage
             {
                 Text = "DPSÇ÷ÊÆÍ¼",
@@ -155,7 +155,7 @@ namespace StarResonanceDpsAnalysis.Forms
                 Font = Font
             });
 
-            // ×¼±¸¸÷Ò³ÃæÈİÆ÷
+            // ×¼±¸¸÷Ò³ÃæÈİÆE
             for (int i = 0; i < 5; i++)
             {
                 var panel = new SystemPanel
@@ -166,7 +166,7 @@ namespace StarResonanceDpsAnalysis.Forms
                 _tabControl.Pages[i].Controls.Add(panel);
             }
 
-            // Îª¼¼ÄÜÕ¼±ÈÍ¼Ò³ÃæÌí¼ÓÍæ¼ÒÑ¡ÔñÆ÷
+            // Îª¼¼ÄÜÕ¼±ÈÍ¼Ò³ÃæÌúØÓÍæ¼ÒÑ¡ÔñÆE
             var skillChartPage = _tabControl.Pages[1];
             var skillChartPanel = skillChartPage.Controls[0] as SystemPanel;
 
@@ -201,7 +201,7 @@ namespace StarResonanceDpsAnalysis.Forms
             Controls.Add(_draggablePanel);
         }
 
-        #region ´°ÌåÍÏ¶¯ÊÂ¼ş´¦Àí
+        #region ´°ÌåÍÏ¶¯ÊÂ¼ş´¦ÀE
 
         private void DraggablePanel_MouseDown(object sender, MouseEventArgs e)
         {
@@ -217,11 +217,11 @@ namespace StarResonanceDpsAnalysis.Forms
         {
             if (_isDragging && e.Button == MouseButtons.Left)
             {
-                // ¼ÆËãÒÆ¶¯¾àÀë
+                // ¼ÆËãÒÆ¶¯¾àÀE
                 var deltaX = e.Location.X - _dragStartPoint.X;
                 var deltaY = e.Location.Y - _dragStartPoint.Y;
 
-                // ÒÆ¶¯´°Ìå
+                // ÒÆ¶¯´°ÌE
                 this.Location = new Point(this.Location.X + deltaX, this.Location.Y + deltaY);
             }
         }
@@ -249,7 +249,7 @@ namespace StarResonanceDpsAnalysis.Forms
         }
 
         /// <summary>
-        /// ×Ô¶¯¼ÓÔØËùÓĞÍ¼±í
+        /// ×Ô¶¯¼ÓÔØËùÓĞÍ¼±E
         /// </summary>
         private void LoadAllCharts()
         {
@@ -283,13 +283,13 @@ namespace StarResonanceDpsAnalysis.Forms
                 _damageTypeChart = ChartVisualizationService.CreateDamageTypeStackedChart();
                 damageTypePanel.Controls.Add(_damageTypeChart);
 
-                // ³õÊ¼Ë¢ĞÂËùÓĞÍ¼±íÊı¾İ
+                // ³õÊ¼Ë¢ĞÂËùÓĞÍ¼±úæı¾İ
                 RefreshAllCharts();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"¼ÓÔØÍ¼±íÊ±³ö´í: {ex.Message}");
-                MessageBox.Show($"¼ÓÔØÍ¼±íÊ±³ö´í: {ex.Message}", "´íÎó", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Console.WriteLine($"¼ÓÔØÍ¼±úæ±³ö´E {ex.Message}");
+                MessageBox.Show($"¼ÓÔØÍ¼±úæ±³ö´E {ex.Message}", "´úê", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -297,13 +297,13 @@ namespace StarResonanceDpsAnalysis.Forms
         {
             _autoRefreshTimer = new System.Windows.Forms.Timer
             {
-                Interval = 100, // 0.1Ãë (100ºÁÃë) ¸ßÆµË¢ĞÂ
+                Interval = 100, // 0.1ÃE(100ºÁÃE ¸ßÆµË¢ĞÂ
                 Enabled = false
             };
             _autoRefreshTimer.Tick += AutoRefreshTimer_Tick;
         }
 
-        #region ÊÂ¼ş´¦Àí
+        #region ÊÂ¼ş´¦ÀE
 
         private void RefreshButton_Click(object sender, EventArgs e)
         {
@@ -357,10 +357,10 @@ namespace StarResonanceDpsAnalysis.Forms
         {
             try
             {
-                // ¸üĞÂÊı¾İµã
+                // ¸EÂÊı¾İµE
                 ChartVisualizationService.UpdateAllDataPoints();
 
-                // Ë¢ĞÂËùÓĞÍ¼±í£¬±ÜÃâÓÃ»§¼ÇÂ¼¶ªÊ§
+                // Ë¢ĞÂËùÓĞÍ¼±ú¿¬±ÜÃâÓÃ»§¼ÇÂ¼¶ªÊ§
                 if (_dpsTrendChart != null)
                 {
                     ChartVisualizationService.RefreshDpsTrendChart(_dpsTrendChart, null, ChartDataType.Damage);
@@ -382,12 +382,12 @@ namespace StarResonanceDpsAnalysis.Forms
                 if (_damageTypeChart != null)
                     ChartVisualizationService.RefreshDamageTypeStackedChart(_damageTypeChart);
 
-                // ¸üĞÂÍæ¼ÒÑ¡ÔñÆ÷
+                // ¸EÂÍæ¼ÒÑ¡ÔñÆE
                 UpdatePlayerSelector();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ë¢ĞÂÍ¼±íÊ±³ö´í: {ex.Message}");
+                Console.WriteLine($"Ë¢ĞÂÍ¼±úæ±³ö´E {ex.Message}");
             }
         }
 
@@ -395,7 +395,7 @@ namespace StarResonanceDpsAnalysis.Forms
         {
             var players = StatisticData._manager.GetPlayersWithCombatData().ToList();
 
-            // ±£´æµ±Ç°Ñ¡Ôñ
+            // ±£´æµ±Ç°Ñ¡ÔE
             var currentSelection = _playerSelector.SelectedValue as PlayerSelectorItem;
 
             _playerSelector.Items.Clear();
@@ -406,7 +406,7 @@ namespace StarResonanceDpsAnalysis.Forms
                 var item = new PlayerSelectorItem { Uid = player.Uid, DisplayName = displayName };
                 _playerSelector.Items.Add(item);
 
-                // »Ö¸´Ñ¡Ôñ»òÄ¬ÈÏÑ¡ÔñµÚÒ»¸ö
+                // »Ö¸´Ñ¡Ôñ»òÄ¬ÈÏÑ¡ÔñµÚÒ»¸E
                 if ((currentSelection != null && currentSelection.Uid == player.Uid) ||
                     (currentSelection == null && _playerSelector.Items.Count == 1))
                 {
@@ -416,16 +416,16 @@ namespace StarResonanceDpsAnalysis.Forms
         }
 
         /// <summary>
-        /// Ë¢ĞÂÍ¼±íÖ÷Ìâ
+        /// Ë¢ĞÂÍ¼±úò÷ÌE
         /// </summary>
         public void RefreshChartsTheme()
         {
             var isDark = !AppConfig.IsLight;
 
-            // ÉèÖÃ´°¿ÚÖ÷Ìâ
+            // ÉèÖÃ´°¿ÚÖ÷ÌE
             FormGui.SetColorMode(this, AppConfig.IsLight);
 
-            // ¸üĞÂËùÓĞÍ¼±íÖ÷Ìâ
+            // ¸EÂËùÓĞÍ¼±úò÷ÌE
             if (_dpsTrendChart != null)
                 _dpsTrendChart.IsDarkTheme = isDark;
 
@@ -443,7 +443,7 @@ namespace StarResonanceDpsAnalysis.Forms
         }
 
         /// <summary>
-        /// Çå¿ÕËùÓĞÍ¼±íÊı¾İ
+        /// Çå¿ÕËùÓĞÍ¼±úæı¾İ
         /// </summary>
         public void ClearAllChartData()
         {
@@ -456,7 +456,7 @@ namespace StarResonanceDpsAnalysis.Forms
         }
 
         /// <summary>
-        /// ÊÖ¶¯Ë¢ĞÂËùÓĞÍ¼±í
+        /// ÊÖ¶¯Ë¢ĞÂËùÓĞÍ¼±E
         /// </summary>
         public void ManualRefreshCharts()
         {
@@ -464,13 +464,13 @@ namespace StarResonanceDpsAnalysis.Forms
         }
 
         /// <summary>
-        /// ÉèÖÃ×Ô¶¯Ë¢ĞÂ¼ä¸ô
+        /// ÉèÖÃ×Ô¶¯Ë¢ĞÂ¼ä¸E
         /// </summary>
         public void SetAutoRefreshInterval(int milliseconds)
         {
             if (_autoRefreshTimer != null)
             {
-                _autoRefreshTimer.Interval = Math.Max(50, milliseconds); // ×îĞ¡50ºÁÃë£¬Ö§³Ö¸ü¸ßÆµÂÊ
+                _autoRefreshTimer.Interval = Math.Max(50, milliseconds); // ×ûì¡50ºÁÃE¬Ö§³Ö¸EßÆµÂÊ
             }
         }
 
@@ -480,7 +480,7 @@ namespace StarResonanceDpsAnalysis.Forms
         public bool IsAutoRefreshEnabled => _autoRefreshEnabled;
 
         /// <summary>
-        /// »ñÈ¡µ±Ç°Ë¢ĞÂ¼ä¸ô
+        /// »ñÈ¡µ±Ç°Ë¢ĞÂ¼ä¸E
         /// </summary>
         public int GetRefreshInterval => _autoRefreshTimer?.Interval ?? 100;
 
@@ -494,7 +494,7 @@ namespace StarResonanceDpsAnalysis.Forms
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            // ´°¿Ú¼ÓÔØºó×Ô¶¯Ë¢ĞÂÒ»´ÎÍ¼±í
+            // ´°¿Ú¼ÓÔØºó×Ô¶¯Ë¢ĞÂÒ»´ÎÍ¼±E
             if (_dpsTrendChart != null)
             {
                 RefreshAllCharts();
@@ -508,7 +508,7 @@ namespace StarResonanceDpsAnalysis.Forms
     }
 
     /// <summary>
-    /// Íæ¼ÒÑ¡ÔñÆ÷Ïî
+    /// Íæ¼ÒÑ¡ÔñÆ÷ÏE
     /// </summary>
     public class PlayerSelectorItem
     {

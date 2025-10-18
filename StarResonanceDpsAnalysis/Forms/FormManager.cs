@@ -9,13 +9,11 @@ namespace StarResonanceDpsAnalysis.Forms
 {
     public class FormManager
     {
-        public const string APP_NAME = "别查我DPS";
+        //public const string APP_NAME = "别查我DPS";
+        public const string APP_NAME = "Don't Check My DPS";
         public static string AppVersion { get => $"v{Application.ProductVersion.Split('+')[0]}"; }
 
-
         public static SkillDiary skillDiary;//
-
-
 
         public static SkillDetailForm skillDetailForm;//技能详情窗体
 

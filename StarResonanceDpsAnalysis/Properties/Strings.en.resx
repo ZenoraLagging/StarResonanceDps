@@ -774,4 +774,10 @@
   <data name="SkillDetail_HitCount" xml:space="preserve">
     <value>Hit Count</value>
   </data>
+  <data name="App_Name" xml:space="preserve">
+    <value>Don't Check My DPS</value>
+  </data>
+  <data name="User_Nickname" xml:space="preserve">
+    <value>???</value>
+  </data>
 </root>
