@@ -85,7 +85,7 @@ namespace StarResonanceDpsAnalysis.Forms
             pageHeader1.SubGap = 0;
             pageHeader1.SubText = "当前伤害";
             pageHeader1.TabIndex = 16;
-            pageHeader1.Text = "DPS Damage Statistics Table  ";
+            pageHeader1.Text = "DPS Damage Statistics Table ";
             // 
             // PilingModeCheckbox
             // 
@@ -141,7 +141,7 @@ namespace StarResonanceDpsAnalysis.Forms
             button3.Icon = Properties.Resources.handoff_normal;
             button3.IconHover = Properties.Resources.handoff_hover;
             button3.IconRatio = 0.8F;
-            button3.Location = new Point(231, 0);
+            button3.Location = new Point(228, 0);
             button3.Name = "button3";
             button3.Size = new Size(23, 25);
             button3.TabIndex = 19;

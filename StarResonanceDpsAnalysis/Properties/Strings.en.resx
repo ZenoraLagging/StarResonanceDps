@@ -667,7 +667,7 @@
     <value>Total Healing</value>
   </data>
   <data name="SkillDetail_Label2_HPS" xml:space="preserve">
-    <value>HPS</value>
+    <value>HP/s</value>
   </data>
   <data name="SkillDetail_Label4_Healing_Crit" xml:space="preserve">
     <value>Crit Rate</value>
@@ -779,5 +779,53 @@
   </data>
   <data name="User_Nickname" xml:space="preserve">
     <value>???</value>
+  </data>
+  <data name="History_Nickname_Column" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="History_Profession_Column" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="History_CombatPower_Column" xml:space="preserve">
+    <value>Ability Score</value>
+  </data>
+  <data name="History_CritLuckyDmg_Column" xml:space="preserve">
+    <value>Crit Lucky DMG</value>
+  </data>
+  <data name="History_MaxInstantDPS_Column" xml:space="preserve">
+    <value>Max Instant DPS</value>
+  </data>
+  <data name="History_LuckyHealing_Column" xml:space="preserve">
+    <value>Lucky Healing Done</value>
+  </data>
+  <data name="History_CritLuckHeal_Column" xml:space="preserve">
+    <value>Crit Lucky Healing</value>
+  </data>
+  <data name="History_MaxInstantHPS_Column" xml:space="preserve">
+    <value>Max Instant HP/s</value>
+  </data>
+  <data name="History_DamageTaken_Column" xml:space="preserve">
+    <value>Damage Taken</value>
+  </data>
+  <data name="History_DmgShare_Column" xml:space="preserve">
+    <value>Damage Share (%)</value>
+  </data>
+  <data name="Total_Death_Count" xml:space="preserve">
+    <value># of deaths</value>
+  </data>
+  <data name="Msg_ResetNetworkCard" xml:space="preserve">
+    <value>You have changed your network card settings.
+
+Please note that after modifying your network card settings, you must restart the application for the changes to take effect.
+Do you want to restart the application now?</value>
+  </data>
+  <data name="Msg_ResetNetworkCardCancel" xml:space="preserve">
+    <value>Your network card settings will take effect the next time you start the application.</value>
+  </data>
+  <data name="Header_Team_Info" xml:space="preserve">
+    <value>Team Info</value>
+  </data>
+  <data name="Title_Skill_Breakdown" xml:space="preserve">
+    <value>Skill Breakdown</value>
   </data>
 </root>

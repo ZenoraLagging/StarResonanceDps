@@ -26,7 +26,7 @@ namespace StarResonanceDpsAnalysis.Forms
         }
         private void RankingsForm_Load(object sender, EventArgs e)
         {
-            FormGui.SetColorMode(this, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(this, null, AppConfig.IsLight);//设置窗体颜色
         }
 
 
@@ -65,12 +65,20 @@ namespace StarResonanceDpsAnalysis.Forms
                 //浅色
                 table_DpsDetailDataTable.RowSelectedBg = ColorTranslator.FromHtml("#AED4FB");
                 button1.DefaultBack = ColorTranslator.FromHtml("#67AEF6");
+                System.Drawing.Color colorWhite = System.Drawing.Color.FromArgb(177, 177, 177);
+
+                pageHeader1.BackColor = colorWhite;
+                pageHeader1.ColorScheme = label1.ColorScheme = TAMode.Light;
             }
             else
             {
                 //深色
                 table_DpsDetailDataTable.RowSelectedBg = ColorTranslator.FromHtml("#10529a");
                 button1.DefaultBack = ColorTranslator.FromHtml("#255AD0");
+                System.Drawing.Color colorBack = System.Drawing.Color.FromArgb(60, 60, 60);
+
+                pageHeader1.BackColor = colorBack;
+                pageHeader1.ColorScheme = label1.ColorScheme = TAMode.Dark;
 
             }
         }

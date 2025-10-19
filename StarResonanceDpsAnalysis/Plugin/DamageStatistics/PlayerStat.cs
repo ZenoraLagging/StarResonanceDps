@@ -2,6 +2,7 @@
 using StarResonanceDpsAnalysis.Core;
 using StarResonanceDpsAnalysis.Forms;
 using System.Collections.Concurrent;
+using System.Numerics;
 using System.Timers;
 using System.Xml.Linq;
 using static StarResonanceDpsAnalysis.Plugin.DamageStatistics.PlayerDataManager;
@@ -492,7 +493,7 @@ namespace StarResonanceDpsAnalysis.Plugin.DamageStatistics
         public ulong Uid { get; }
 
         /// <summary>玩家昵称。</summary>
-        public string Nickname { get; set; } = "未知";
+        public string Nickname { get; set; } = Properties.Strings.User_Nickname;
 
         /// <summary>战力。</summary>
         public int CombatPower { get; set; } = 0;
@@ -1708,6 +1709,35 @@ namespace StarResonanceDpsAnalysis.Plugin.DamageStatistics
             return result;
         }
 
+        /// <summary>
+        /// Returns the player's DPS parse to the clipboard as a string.
+        /// </summary>
+        /// <param name="uid">Player UID。</param>
+        /// <returns>(output) to clipboard 三元组。</returns>
+        public void CopyPlayerDPSInfo(ulong uid)
+        {
+
+            // 先查已创建的 PlayerData
+            // 对 _players 的访问统一加锁
+            lock (_playersLock)
+            {
+                if (_players.TryGetValue(uid, out var player))
+                {
+                    //Clipboard.SetText($"{player.Nickname} - {player.Profession} ({player.CombatPower}) - {totalFmt} ({perSec}/s) {share}");
+                    Clipboard.SetText($"{player.Nickname} - {player.Profession} ({player.CombatPower})");
+
+                }
+            }
+
+            // 没有 PlayerData，则用缓存字典
+            string nickname = _nicknameRequestedUids.TryGetValue(uid, out var name) ? name : "未知";
+            int combatPower = _combatPowerByUid.TryGetValue(uid, out var power) ? power : 0;
+            string profession = _professionByUid.TryGetValue(uid, out var prof) ? prof : Properties.Strings.Profession_Unknown;
+
+            //Clipboard.SetText($"{nickname} - {profession} ({combatPower}) - {totalFmt} ({perSec}/s) {share}");
+            Clipboard.SetText($"{nickname} - {profession} ({combatPower})");
+
+        }
 
         /// <summary>
         /// 根据UID获取玩家基础信息：昵称、战力、职业。

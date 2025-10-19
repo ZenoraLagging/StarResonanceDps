@@ -9,8 +9,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,11 +39,12 @@ namespace StarResonanceDpsAnalysis.Forms
             table_DpsDetailDataTable.Font = AppConfig.ContentFont;
             TeamTotalDamageLabel.Font = TeamTotalHealingLabel.Font = TeamTotalTakenDamageLabel.Font = AppConfig.DigitalFont;
 
+            ApplyLocalization();
         }
 
         private void HistoricalBattlesForm_Load(object sender, EventArgs e)
         {
-            FormGui.SetColorMode(this, AppConfig.IsLight);//设置窗体颜色 // 根据配置设置窗体的颜色主题（明亮/深色）
+            FormGui.SetColorMode(this, this.pageHeader1, AppConfig.IsLight);//设置窗体颜色 // 根据配置设置窗体的颜色主题（明亮/深色）
 
             if (FormManager.showTotal)
             {
@@ -136,7 +139,7 @@ namespace StarResonanceDpsAnalysis.Forms
             DpsTableDatas.DpsTable.Clear(); // 清空旧数据
             var sb = new StringBuilder();
             sb.AppendLine($"[快照] {snap.StartedAt:MM-dd HH:mm:ss} ~ {snap.EndedAt:HH:mm:ss}  时长: {snap.Duration}");
-            TeamTotalDamageLabel.Text =Common.FormatWithEnglishUnits(snap.TeamTotalDamage.ToString());
+            TeamTotalDamageLabel.Text = Common.FormatWithEnglishUnits(snap.TeamTotalDamage.ToString());
             TeamTotalHealingLabel.Text = Common.FormatWithEnglishUnits(snap.TeamTotalHealing.ToString());
             TeamTotalTakenDamageLabel.Text = Common.FormatWithEnglishUnits(snap.TeamTotalTakenDamage.ToString());
             var tdTotal = snap.TeamTotalDamage;
@@ -208,7 +211,7 @@ namespace StarResonanceDpsAnalysis.Forms
             sb.AppendLine($"[全程快照] {snap.StartedAt:MM-dd HH:mm:ss} ~ {snap.EndedAt:HH:mm:ss}  时长: {snap.Duration}");
             TeamTotalDamageLabel.Text = Common.FormatWithEnglishUnits(snap.TeamTotalDamage.ToString());
             TeamTotalHealingLabel.Text = Common.FormatWithEnglishUnits(snap.TeamTotalHealing.ToString());
-            TeamTotalTakenDamageLabel.Text = Common.FormatWithEnglishUnits( snap.TeamTotalTakenDamage.ToString());
+            TeamTotalTakenDamageLabel.Text = Common.FormatWithEnglishUnits(snap.TeamTotalTakenDamage.ToString());
             var orderedPlayers = ApplySort(snap.Players.Values);
 
             foreach (var p in orderedPlayers)
@@ -350,6 +353,10 @@ namespace StarResonanceDpsAnalysis.Forms
             int power = row.CombatPower;
             string prof = row.Profession;
 
+            string totalDmg = row.TotalDamage;
+            string totalDps = row.TotalDps;
+            double dmgShare = row.DmgShare;
+
             // —— 详情窗体准备 —— 
             if (FormManager.skillDetailForm == null || FormManager.skillDetailForm.IsDisposed)
                 FormManager.skillDetailForm = new SkillDetailForm();
@@ -359,6 +366,8 @@ namespace StarResonanceDpsAnalysis.Forms
             f.Nickname = nick;
             f.Power = power;
             f.Profession = prof;
+
+            Clipboard.SetText($"{nick} - {prof} ({power}) | Total: {totalDmg} [{totalDps} DPS] ({dmgShare}%)");
 
             // —— 快照上下文 + 时间 —— 
             f.ContextType = DetailContextType.Snapshot;
@@ -403,6 +412,12 @@ namespace StarResonanceDpsAnalysis.Forms
                 panel1.Back = ColorTranslator.FromHtml("#67AEF6");
                 splitter1.Panel1.BackColor = ColorTranslator.FromHtml("#FFFFFF");
                 table_DpsDetailDataTable.BackColor = ColorTranslator.FromHtml("#FFFFFF");
+                System.Drawing.Color colorWhite = System.Drawing.Color.FromArgb(177, 177, 177);
+
+                pageHeader1.BackColor = colorWhite;
+                pageHeader1.ColorScheme = label1.ColorScheme = TAMode.Light;
+                label2.ColorScheme = label3.ColorScheme = label5.ColorScheme = label6.ColorScheme =
+                    TeamTotalDamageLabel.ColorScheme = TeamTotalHealingLabel.ColorScheme = TeamTotalTakenDamageLabel.ColorScheme = TAMode.Light;
             }
             else
             {
@@ -411,16 +426,22 @@ namespace StarResonanceDpsAnalysis.Forms
                 splitter1.Panel1.BackColor = ColorTranslator.FromHtml("#141414");
                 table_DpsDetailDataTable.BackColor = ColorTranslator.FromHtml("#1F1F1F");
                 table_DpsDetailDataTable.RowSelectedBg = ColorTranslator.FromHtml("#10529a");
+                System.Drawing.Color colorBack = System.Drawing.Color.FromArgb(60, 60, 60);
+
+                pageHeader1.BackColor = colorBack;
+                pageHeader1.ColorScheme = label1.ColorScheme = TAMode.Dark;
+                label2.ColorScheme = label3.ColorScheme = label5.ColorScheme = label6.ColorScheme =
+                    TeamTotalDamageLabel.ColorScheme = TeamTotalHealingLabel.ColorScheme = TeamTotalTakenDamageLabel.ColorScheme = TAMode.Dark;
             }
         }
 
         private void select2_SelectedIndexChanged(object sender, IntEventArgs e)
         {
-            var val = select2?.SelectedValue?.ToString();
+            var val = select2?.SelectedIndex;
             _sortMode = val switch
             {
-                "按治疗排序" => SortMode.ByHealing,
-                "按承伤排序" => SortMode.ByTaken,
+                2 => SortMode.ByHealing,
+                3 => SortMode.ByTaken,
                 _ => SortMode.ByDamage
             };
 
@@ -435,6 +456,24 @@ namespace StarResonanceDpsAnalysis.Forms
                 if (select1.SelectedValue is ComboItemFull f && f.Snapshot != null)
                     DumpFullSnapshot(f.Snapshot);
             }
+        }
+
+        public void ApplyLocalization()
+        {
+            label2.Text = Properties.Strings.TotalTreatmentLabel;
+            label3.Text = Properties.Strings.TotalDamageLabel;
+            label5.Text = Properties.Strings.History_DamageTaken_Column;
+            label6.Text = Properties.Strings.Header_Team_Info;
+
+            AntdUI.SegmentedItem segmentedItem1 = new AntdUI.SegmentedItem();
+            AntdUI.SegmentedItem segmentedItem2 = new AntdUI.SegmentedItem();
+
+            segmentedItem1.Text = Properties.Strings.Header_Current_Damage;
+            segmentedItem2.Text = Properties.Strings.Header_FullRecord_Damage;
+
+            segmented1.Items.Clear();
+            segmented1.Items.Add(segmentedItem1);
+            segmented1.Items.Add(segmentedItem2);
         }
     }
 }

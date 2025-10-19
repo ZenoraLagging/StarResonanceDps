@@ -447,7 +447,9 @@ namespace StarResonanceDpsAnalysis.Forms
             { Properties.Strings.Profession_Stormblade, new Bitmap(new MemoryStream(Resources.雷影剑士)) },
             { Properties.Strings.Profession_WindKnight, new Bitmap(new MemoryStream(Resources.青岚骑士)) },
             { Properties.Strings.Profession_AegisKnight, new Bitmap(new MemoryStream(Resources.神盾骑士)) },
+
             { Properties.Strings.SubProfession_Concerto, new Bitmap(new MemoryStream(Resources.灵魂乐手)) },
+            { Properties.Strings.SubProfession_Iai, new Bitmap(new MemoryStream(Resources.雷影剑士)) },
             { Properties.Strings.SubProfession_MoonBlade, new Bitmap(new MemoryStream(Resources.雷影剑士)) },
             { Properties.Strings.SubProfession_EagleBow, new Bitmap(new MemoryStream(Resources.神射手)) },
             { Properties.Strings.SubProfession_WolfBow, new Bitmap(new MemoryStream(Resources.神射手)) },
@@ -610,21 +612,23 @@ namespace StarResonanceDpsAnalysis.Forms
                         DictList[p.Uid] = row;
                     }
 
+
+                    // Section for displaying rows
                     string share = $"{Math.Round(p.Total / teamSum * 100d, 0, MidpointRounding.AwayFromZero)}%";
                     row[0].Image = profBmp;
                     // 只要子流派；没有子流派就用战力；否则只显示昵称
                     string sp = Common.GetTranslatedSubProfession(p.SubProfession);
 
-                    row[1].Text = $"{p.Nickname}-{sp}({p.CombatPower})"; //TODO come back here, update subprofession when changing language
+                    row[1].Text = $"{p.Nickname} - {sp} ({p.CombatPower})"; //TODO come back here, update subprofession when changing language
 
 
-                    row[2].Text = $"{totalFmt} ({perSec})";
+                    row[2].Text = $"{totalFmt} ({perSec}/s)";
                     row[3].Text = share;
 
                     if (p.Uid == (long)AppConfig.Uid)
                     {
                         label1.Text = $" [{i + 1}]";
-                        label2.Text = $"{totalFmt} ({perSec})";
+                        label2.Text = $"{totalFmt} ({perSec}) ";
                     }
 
                     // 复用旧的 ProgressBarData，避免 UI 抖动；没有则新建
@@ -1076,6 +1080,9 @@ namespace StarResonanceDpsAnalysis.Forms
 
             return rows;
         }
+        private void sortedProgressBarList1_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

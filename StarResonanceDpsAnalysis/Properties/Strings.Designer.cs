@@ -205,6 +205,105 @@ namespace StarResonanceDpsAnalysis.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 团队信息.
+        /// </summary>
+        internal static string Header_Team_Info {
+            get {
+                return ResourceManager.GetString("Header_Team_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 战力.
+        /// </summary>
+        internal static string History_CombatPower_Column {
+            get {
+                return ResourceManager.GetString("History_CombatPower_Column", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 暴击且幸运的治疗量.
+        /// </summary>
+        internal static string History_CritLuckHeal_Column {
+            get {
+                return ResourceManager.GetString("History_CritLuckHeal_Column", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 暴击且幸运的伤害.
+        /// </summary>
+        internal static string History_CritLuckyDmg_Column {
+            get {
+                return ResourceManager.GetString("History_CritLuckyDmg_Column", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 承受伤害总量.
+        /// </summary>
+        internal static string History_DamageTaken_Column {
+            get {
+                return ResourceManager.GetString("History_DamageTaken_Column", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 团队伤害占比(%).
+        /// </summary>
+        internal static string History_DmgShare_Column {
+            get {
+                return ResourceManager.GetString("History_DmgShare_Column", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 幸运治疗量.
+        /// </summary>
+        internal static string History_LuckyHealing_Column {
+            get {
+                return ResourceManager.GetString("History_LuckyHealing_Column", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 最大瞬时Dps.
+        /// </summary>
+        internal static string History_MaxInstantDPS_Column {
+            get {
+                return ResourceManager.GetString("History_MaxInstantDPS_Column", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 最大瞬时 HPS.
+        /// </summary>
+        internal static string History_MaxInstantHPS_Column {
+            get {
+                return ResourceManager.GetString("History_MaxInstantHPS_Column", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 昵称.
+        /// </summary>
+        internal static string History_Nickname_Column {
+            get {
+                return ResourceManager.GetString("History_Nickname_Column", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 职业.
+        /// </summary>
+        internal static string History_Profession_Column {
+            get {
+                return ResourceManager.GetString("History_Profession_Column", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 伤害参考.
         /// </summary>
         internal static string Menu_DamageReference {
@@ -1000,6 +1099,27 @@ namespace StarResonanceDpsAnalysis.Properties {
         internal static string Msg_PilingModeInfo {
             get {
                 return ResourceManager.GetString("Msg_PilingModeInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 您已更改网卡设置。
+        ///
+        ///请注意，修改网卡后需要重新启动应用程序以使更改生效。
+        ///是否立刻重新启动应用程序？.
+        /// </summary>
+        internal static string Msg_ResetNetworkCard {
+            get {
+                return ResourceManager.GetString("Msg_ResetNetworkCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 您的网卡设置将在下次启动应用时生效.
+        /// </summary>
+        internal static string Msg_ResetNetworkCardCancel {
+            get {
+                return ResourceManager.GetString("Msg_ResetNetworkCardCancel", resourceCulture);
             }
         }
         
@@ -1985,6 +2105,15 @@ namespace StarResonanceDpsAnalysis.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 技能分解.
+        /// </summary>
+        internal static string Title_Skill_Breakdown {
+            get {
+                return ResourceManager.GetString("Title_Skill_Breakdown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 置顶.
         /// </summary>
         internal static string Tooltip_AlwaysOnTop {
@@ -2026,6 +2155,15 @@ namespace StarResonanceDpsAnalysis.Properties {
         internal static string Tooltip_SwitchTheme {
             get {
                 return ResourceManager.GetString("Tooltip_SwitchTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 死亡次数.
+        /// </summary>
+        internal static string Total_Death_Count {
+            get {
+                return ResourceManager.GetString("Total_Death_Count", resourceCulture);
             }
         }
         

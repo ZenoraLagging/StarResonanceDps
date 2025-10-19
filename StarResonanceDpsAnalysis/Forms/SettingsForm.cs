@@ -43,7 +43,7 @@ namespace StarResonanceDpsAnalysis.Forms
         }
         private void SettingsForm_Load(object sender, EventArgs e)
         {
-            FormGui.SetColorMode(this, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(this, this.pageHeader1, AppConfig.IsLight);//设置窗体颜色
 
             slider1.Value = (int)AppConfig.Transparency;
             inputNumber2.Value = AppConfig.CombatTimeClearDelaySeconds;
@@ -151,12 +151,7 @@ namespace StarResonanceDpsAnalysis.Forms
                 Console.WriteLine($"更新MainForm网卡设置提示时出错: {ex.Message}");
             }
 
-            var result = AppMessageBox.ShowMessage("""
-                    您已更改网卡设置。
-
-                    请注意，修改网卡后需要重新启动应用程序以使更改生效。
-                    是否立刻重新启动应用程序？
-                    """, this);
+            var result = AppMessageBox.ShowMessage(Properties.Strings.Msg_ResetNetworkCard, this);
             if (result == DialogResult.OK)
             {
                 // 重新启动应用程序
@@ -165,7 +160,7 @@ namespace StarResonanceDpsAnalysis.Forms
             }
             else
             {
-                AppMessageBox.ShowMessage("您的网卡设置将在下次启动应用时生效。", this);
+                AppMessageBox.ShowMessage(Properties.Strings.Msg_ResetNetworkCardCancel, this);
             }
 
         }
@@ -216,12 +211,20 @@ namespace StarResonanceDpsAnalysis.Forms
                 //浅色
                 BasicSetupPanel.Back = KeySettingsPanel.Back = CombatSettingsPanel.Back = ColorTranslator.FromHtml("#FFFFFF");
                 stackPanel1.Back = ColorTranslator.FromHtml("#EFEFEF");
+                Color colorWhite = Color.FromArgb(177, 177, 177);
+
+                pageHeader1.BackColor = colorWhite;
+                pageHeader1.ColorScheme = TitleText.ColorScheme = TAMode.Light;
                 //transparencyKnob1.IsDarkMode = false;
             }
             else
             {
                 BasicSetupPanel.Back = KeySettingsPanel.Back = CombatSettingsPanel.Back = ColorTranslator.FromHtml("#282828");
                 stackPanel1.Back = ColorTranslator.FromHtml("#1E1E1E");
+                Color colorBack = Color.FromArgb(60, 60, 60);
+
+                pageHeader1.BackColor = colorBack;
+                pageHeader1.ColorScheme = TitleText.ColorScheme = TAMode.Dark;
                 //transparencyKnob1.IsDarkMode = true;
             }
         }

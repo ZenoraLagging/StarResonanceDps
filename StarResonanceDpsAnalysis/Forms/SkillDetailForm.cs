@@ -86,7 +86,7 @@ namespace StarResonanceDpsAnalysis.Control
         private int fixedWidth = 1911;//窗体宽度
         private void SkillDetailForm_Load(object sender, EventArgs e)
         {
-            FormGui.SetColorMode(this, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(this, this.pageHeader1, AppConfig.IsLight);//设置窗体颜色
 
             isSelect = true;
             select1.Items = new AntdUI.BaseCollection() { Strings.SkillDetail_Select1_Item_SortByDamage, Strings.SkillDetail_Select1_Item_SortByDpsTaken, Strings.SkillDetail_Select1_Item_SortByHitCount, Strings.SkillDetail_Select1_Item_SortByCritRate };
@@ -385,6 +385,7 @@ namespace StarResonanceDpsAnalysis.Control
             LevelLabel.Text = StatisticData._manager.GetAttrKV(Uid, "level")?.ToString() ?? "";
             Rank_levelLabel.Text = StatisticData._manager.GetAttrKV(Uid, "rank_level")?.ToString() ?? "";
 
+            this.Text = $"{nickname}'s {Properties.Strings.Title_Skill_Breakdown}";
 
             object? resourceObj = Properties.Resources.ResourceManager.GetObject(profession + "10");
 

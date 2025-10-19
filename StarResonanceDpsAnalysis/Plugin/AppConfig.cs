@@ -105,7 +105,7 @@ namespace StarResonanceDpsAnalysis.Plugin
                 return new RenderContent.ContentOffset { X = x, Y = 0 };
             }
         }
-        public static RenderContent.ContentOffset ProgressBarProportion = new RenderContent.ContentOffset { X = -6, Y = 0 };
+        public static RenderContent.ContentOffset ProgressBarProportion = new RenderContent.ContentOffset { X = -2, Y = 0 };
         #region 字体
         /// <summary>
         /// 进度条字体
@@ -132,6 +132,14 @@ namespace StarResonanceDpsAnalysis.Plugin
             get => HandledResources.GetSAOWelcomeTTFont(10);
         }
 
+        /// <summary>
+        /// SAO字体小
+        /// </summary>
+        public static Font BoldSaoFont
+        {
+            get => HandledResources.GetSAOWelcomeTTFont(10);
+        }
+
 
         /// <summary>
         /// 标题SAO
@@ -139,6 +147,14 @@ namespace StarResonanceDpsAnalysis.Plugin
         public static Font TitleFont
         {
             get => HandledResources.GetSAOWelcomeTTFont(12);
+        }
+
+        /// <summary>
+        /// 标题SAO
+        /// </summary>
+        public static Font Title2Font
+        {
+            get => HandledResources.GetSAOWelcomeTTFont(11);
         }
 
         /// <summary>

@@ -14,7 +14,7 @@ namespace StarResonanceDpsAnalysis.Forms
 
             table_DpsDetailDataTable.Columns.Clear();
 
-            table_DpsDetailDataTable.Columns = new AntdUI.ColumnCollection
+/*            table_DpsDetailDataTable.Columns = new AntdUI.ColumnCollection
             {
               new AntdUI.Column("Uid", "UID"),
                 new AntdUI.Column("NickName", "昵称"),
@@ -38,6 +38,33 @@ namespace StarResonanceDpsAnalysis.Forms
                 new AntdUI.Column("DamageTaken", "承受伤害总量"),
                // new AntdUI.Column("Share","占比"),
                 new AntdUI.Column("DmgShare","团队伤害占比(%)"),
+            };*/
+
+
+            table_DpsDetailDataTable.Columns = new AntdUI.ColumnCollection
+            {
+              new AntdUI.Column("Uid", "UID"),
+                new AntdUI.Column("NickName", Properties.Strings.History_Nickname_Column),
+                new AntdUI.Column("Profession", Properties.Strings.History_Profession_Column),
+                new AntdUI.Column("CombatPower", Properties.Strings.History_CombatPower_Column),
+                new AntdUI.Column("TotalDamage", Properties.Strings.SkillDetail_Label1_TotalDamage),
+                new AntdUI.Column("TotalDps", Properties.Strings.SkillDetail_TotalDps),
+                new AntdUI.Column("CritRate", Properties.Strings.SkillDetail_CritRate),
+                new AntdUI.Column("LuckyRate", Properties.Strings.SkillDetail_Label5_Healing_Lucky),
+                new AntdUI.Column("CriticalDamage", Properties.Strings.SkillDetail_Label7_CritDamage),
+                new AntdUI.Column("LuckyDamage", Properties.Strings.SkillDetail_Label8_LuckyDamage),
+                new AntdUI.Column("CritLuckyDamage", Properties.Strings.History_CritLuckyDmg_Column),
+                new AntdUI.Column("MaxInstantDps", Properties.Strings.History_MaxInstantDPS_Column),
+
+                new AntdUI.Column("TotalHealingDone", Properties.Strings.SkillDetail_Label1_TotalHealing),
+                new AntdUI.Column("TotalHps", Properties.Strings.SkillDetail_Label2_HPS),
+                new AntdUI.Column("CriticalHealingDone", Properties.Strings.SkillDetail_Label4_Healing_Crit),
+                new AntdUI.Column("LuckyHealingDone", Properties.Strings.History_LuckyHealing_Column),
+                new AntdUI.Column("CritLuckyHealingDone", Properties.Strings.History_CritLuckHeal_Column),
+                new AntdUI.Column("MaxInstantHps", Properties.Strings.History_MaxInstantHPS_Column),
+                new AntdUI.Column("DamageTaken", Properties.Strings.History_DamageTaken_Column),
+               // new AntdUI.Column("Share","占比"),
+                new AntdUI.Column("DmgShare",Properties.Strings.History_DmgShare_Column),
             };
 
             table_DpsDetailDataTable.Binding(DpsTableDatas.DpsTable);

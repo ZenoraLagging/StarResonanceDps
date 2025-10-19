@@ -787,4 +787,52 @@
   <data name="User_Nickname" xml:space="preserve">
     <value>未知</value>
   </data>
+  <data name="History_Nickname_Column" xml:space="preserve">
+    <value>昵称</value>
+  </data>
+  <data name="History_Profession_Column" xml:space="preserve">
+    <value>职业</value>
+  </data>
+  <data name="History_CombatPower_Column" xml:space="preserve">
+    <value>战力</value>
+  </data>
+  <data name="History_CritLuckyDmg_Column" xml:space="preserve">
+    <value>暴击且幸运的伤害</value>
+  </data>
+  <data name="History_MaxInstantDPS_Column" xml:space="preserve">
+    <value>最大瞬时Dps</value>
+  </data>
+  <data name="History_LuckyHealing_Column" xml:space="preserve">
+    <value>幸运治疗量</value>
+  </data>
+  <data name="History_CritLuckHeal_Column" xml:space="preserve">
+    <value>暴击且幸运的治疗量</value>
+  </data>
+  <data name="History_MaxInstantHPS_Column" xml:space="preserve">
+    <value>最大瞬时 HPS</value>
+  </data>
+  <data name="History_DamageTaken_Column" xml:space="preserve">
+    <value>承受伤害总量</value>
+  </data>
+  <data name="History_DmgShare_Column" xml:space="preserve">
+    <value>团队伤害占比(%)</value>
+  </data>
+  <data name="Total_Death_Count" xml:space="preserve">
+    <value>死亡次数</value>
+  </data>
+  <data name="Msg_ResetNetworkCard" xml:space="preserve">
+    <value>您已更改网卡设置。
+
+请注意，修改网卡后需要重新启动应用程序以使更改生效。
+是否立刻重新启动应用程序？</value>
+  </data>
+  <data name="Msg_ResetNetworkCardCancel" xml:space="preserve">
+    <value>您的网卡设置将在下次启动应用时生效</value>
+  </data>
+  <data name="Header_Team_Info" xml:space="preserve">
+    <value>团队信息</value>
+  </data>
+  <data name="Title_Skill_Breakdown" xml:space="preserve">
+    <value>技能分解</value>
+  </data>
 </root>

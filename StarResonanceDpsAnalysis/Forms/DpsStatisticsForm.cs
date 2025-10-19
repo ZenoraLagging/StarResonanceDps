@@ -62,12 +62,12 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
             // 加载网卡
             LoadNetworkDevices(); // 加载/枚举网络设备（抓包设备列表）
 
-            FormGui.SetColorMode(this, AppConfig.IsLight);//设置窗体颜色 // 根据配置设置窗体的颜色主题（明亮/深色）
+            FormGui.SetColorMode(this, null, AppConfig.IsLight); //设置窗体颜色 // 根据配置设置窗体的颜色主题（明亮/深色）
 
             // 加载技能配置
             StartupInitializer.LoadFromEmbeddedSkillConfig(); // 从内置资源读取并加载技能数据（元数据/图标/映射）
 
-
+            // Initalizer for opening skill breakdowns
             sortedProgressBarList1.SelectionChanged += (s, i, d) => // 订阅进度条列表的选择变化事件（点击条目）
             { // 事件处理开始
                 // # UI 列表交互：当用户点击列表项时触发（i 为索引，d 为 ProgressBarData）
@@ -141,6 +141,8 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
             FormManager.skillDetailForm.Uid = uid;
             var info = StatisticData._manager.GetPlayerBasicInfo(uid);
             FormManager.skillDetailForm.GetPlayerInfo(info.Nickname, info.CombatPower, info.Profession);
+
+            StatisticData._manager.CopyPlayerDPSInfo(uid);
 
             if (FormManager.showTotal) { FormManager.skillDetailForm.ContextType = DetailContextType.FullRecord; FormManager.skillDetailForm.SnapshotStartTime = null; }
             else { FormManager.skillDetailForm.ContextType = DetailContextType.Current; FormManager.skillDetailForm.SnapshotStartTime = null; }
@@ -494,7 +496,7 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
                 TotalTreatmentButton.Icon = Common.BytesToImage(Properties.Resources.治疗);
                 AlwaysInjuredButton.Icon = Common.BytesToImage(Properties.Resources.承伤);
                 NpcTakeDamageButton.Icon = Common.BytesToImage(Properties.Resources.Npc);
-                Color colorWhite = Color.FromArgb(223, 223, 223);
+                Color colorWhite = Color.FromArgb(177, 177, 177);
 
                 pageHeader1.BackColor = colorWhite;
                 pageHeader1.ColorScheme = TAMode.Light;
@@ -589,7 +591,7 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
 
         private void SetDefaultFontFromResources()
         {
-            pageHeader1.Font = AppConfig.SaoFont;
+            pageHeader1.Font = AppConfig.TitleFont;
             pageHeader1.SubFont = AppConfig.ContentFont;
             PilingModeCheckbox.Font = AppConfig.ContentFont;
             label2.Font = label1.Font = AppConfig.ContentFont;
@@ -766,15 +768,15 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
 
             button_ThemeSwitch.Toggle = !AppConfig.IsLight; // # UI同步：按钮切换状态
 
-            FormGui.SetColorMode(this, AppConfig.IsLight);
-            FormGui.SetColorMode(FormManager.skillDiary, AppConfig.IsLight);
-            FormGui.SetColorMode(FormManager.mainForm, AppConfig.IsLight);//设置窗体颜色
-            FormGui.SetColorMode(FormManager.skillDetailForm, AppConfig.IsLight);//设置窗体颜色
-            FormGui.SetColorMode(FormManager.settingsForm, AppConfig.IsLight);//设置窗体颜色
-            FormGui.SetColorMode(FormManager.dpsStatistics, AppConfig.IsLight);//设置窗体颜色
-            FormGui.SetColorMode(FormManager.rankingsForm, AppConfig.IsLight);//设置窗体颜色
-            FormGui.SetColorMode(FormManager.historicalBattlesForm, AppConfig.IsLight);//设置窗体颜色
-            FormGui.SetColorMode(FormManager.moduleCalculationForm, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(this, null, AppConfig.IsLight);
+            FormGui.SetColorMode(FormManager.skillDiary, null, AppConfig.IsLight);
+            FormGui.SetColorMode(FormManager.mainForm, null, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(FormManager.skillDetailForm, null, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(FormManager.settingsForm, null, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(FormManager.dpsStatistics, null, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(FormManager.rankingsForm, null, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(FormManager.historicalBattlesForm, null, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(FormManager.moduleCalculationForm, null, AppConfig.IsLight);//设置窗体颜色
         }
         public void ApplyLocalization()
         {
@@ -792,9 +794,5 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
             PilingModeCheckbox.Text = Properties.Strings.PilingModeCheckboxLabel;
         }
 
-        private void sortedProgressBarList1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

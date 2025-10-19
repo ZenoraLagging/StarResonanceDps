@@ -19,7 +19,7 @@ namespace StarResonanceDpsAnalysis.Forms
         {
             InitializeComponent();
             FormGui.SetDefaultGUI(this); // 统一设置窗体默认 GUI 风格（字体、间距、阴影等）
-            FormGui.SetColorMode(this, AppConfig.IsLight);//设置窗体颜色 // 根据配置设置窗体的颜色主题（明亮/深色）
+            FormGui.SetColorMode(this, this.pageHeader1, AppConfig.IsLight);//设置窗体颜色 // 根据配置设置窗体的颜色主题（明亮/深色）
             //加载死亡信息
             ToggleTableView();
             //设置字体
@@ -43,14 +43,16 @@ namespace StarResonanceDpsAnalysis.Forms
 
 
             table_DpsDetailDataTable.Columns = new AntdUI.ColumnCollection
-            {   new("", "序号")
+            {   new("", "ID")  //"序号"
                 {
 
                     Render = (value, record, rowIndex) => rowIndex + 1,
                     Fixed = true
                 },
-                new AntdUI.Column("NickName","玩家昵称"){ Fixed = true},
-                new AntdUI.Column("TotalDeathCount","死亡次数"){ Fixed = true},
+                //new AntdUI.Column("NickName","玩家昵称"){ Fixed = true},
+                //new AntdUI.Column("TotalDeathCount","死亡次数"){ Fixed = true},
+                new AntdUI.Column("NickName",Properties.Strings.History_Nickname_Column){ Fixed = true},
+                new AntdUI.Column("TotalDeathCount", Properties.Strings.Total_Death_Count){ Fixed = true},
 
 
             };

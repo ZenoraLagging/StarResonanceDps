@@ -86,7 +86,7 @@
             label1.Name = "label1";
             label1.Size = new Size(1130, 52);
             label1.TabIndex = 26;
-            label1.Text = "HistoricalBattles";
+            label1.Text = "Historical Battles";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.MouseDown += label1_MouseDown;
             // 
@@ -109,18 +109,18 @@
             // 
             select2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             select2.DropDownTextAlign = AntdUI.TAlign.Top;
-            select2.Items.AddRange(new object[] { "按伤害排序", "按治疗排序", "按承伤排序" });
+            select2.Items.AddRange(new object[] { Properties.Strings.SkillDetail_Select1_Item_SortByDamage, Properties.Strings.SkillDetail_Select1_Item_SortByHealing, Properties.Strings.SkillDetail_Select1_Item_SortByDamageTaken });
             select2.List = true;
             select2.Location = new Point(881, 34);
             select2.Name = "select2";
             select2.Placement = AntdUI.TAlignFrom.Top;
             select2.Radius = 3;
             select2.SelectedIndex = 0;
-            select2.SelectedValue = "按伤害排序";
+            select2.SelectedValue = Properties.Strings.SkillDetail_Select1_Item_SortByDamage;
             select2.SelectionStart = 5;
             select2.Size = new Size(237, 47);
             select2.TabIndex = 29;
-            select2.Text = "按伤害排序";
+            select2.Text = Properties.Strings.SkillDetail_Select1_Item_SortByDamage;
             select2.SelectedIndexChanged += select2_SelectedIndexChanged;
             // 
             // button1
@@ -186,8 +186,8 @@
             segmented1.Font = new Font("HarmonyOS Sans SC", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
             segmented1.Full = true;
             segmented1.IconGap = 0F;
-            segmentedItem1.Text = "单次伤害记录";
-            segmentedItem2.Text = "全程伤害记录";
+            segmentedItem1.Text = Properties.Strings.Header_Current_Damage;
+            segmentedItem2.Text = Properties.Strings.Header_FullRecord_Damage;
             segmented1.Items.Add(segmentedItem1);
             segmented1.Items.Add(segmentedItem2);
             segmented1.Location = new Point(9, 9);

@@ -29,5 +29,9 @@ namespace StarResonanceDpsAnalysis.Properties
         {
             return FontLoader.LoadFontFromBytesAndCache(SAO_WELCOME_TT_FONT_KEY, Resources.SAOWelcomeTT, fontSize, fontStyle);
         }
+        public static Font GetSAOWelcomeTTBoldFont(float fontSize = 9, FontStyle fontStyle = FontStyle.Bold)
+        {
+            return FontLoader.LoadFontFromBytesAndCache(SAO_WELCOME_TT_FONT_KEY, Resources.SAOWelcomeTT, fontSize, fontStyle);
+        }
     }
 }

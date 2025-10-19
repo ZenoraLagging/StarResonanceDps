@@ -14,12 +14,12 @@ namespace StarResonanceDpsAnalysis.Forms
         private readonly List<SkillRotationData> _history = new();
         private readonly Dictionary<ulong, DateTime> _lastUsage = new();
 
-        // Ô­Ê¼¿¨Æ¬³ß´ç
+        // Ô­Ê¼¿¨Æ¬³ß´E
         private const int BASE_CARD_WIDTH = 120;
         private const int BASE_CARD_HEIGHT = 80;
         private const float SCALE = 0.75f; // ËõĞ¡ 25%
 
-        // ¼ÆËãºó³ß´çÓëÈİÆ÷ÄÚ±ß¾à
+        // ¼ÆËãºó³ß´çÓEİÆ÷ÄÚ±ß¾E
         private static int CARD_WIDTH => (int)Math.Round(BASE_CARD_WIDTH * SCALE);
         private static int CARD_HEIGHT => (int)Math.Round(BASE_CARD_HEIGHT * SCALE);
         private static int PX(int v) => Math.Max(1, (int)Math.Round(v * SCALE));
@@ -42,7 +42,7 @@ namespace StarResonanceDpsAnalysis.Forms
             ClientSize = new Size(800, CARD_HEIGHT + PAD_T + PAD_B + 2 + extraH);
 
             // ÑùÊ½£¨¸úËæÖ÷½çÃæ£©
-            FormGui.SetColorMode(this, AppConfig.IsLight);
+            FormGui.SetColorMode(this, null, AppConfig.IsLight);
 
             // ÈİÆ÷£ºÒ»ĞĞÕ¹Ê¾¡¢²»»»ĞĞ£»ÆôÓÃ×Ô¶¯¹ö¶¯£¨½öÏÔÊ¾Ë®Æ½¹ö¶¯Ìõ£©
             _flow = new FlowLayoutPanel
@@ -62,7 +62,7 @@ namespace StarResonanceDpsAnalysis.Forms
 
             Controls.Add(_flow);
 
-            // ÔÊĞíÈÎÒâÇøÓòÍÏ¶¯´°¿Ú
+            // ÔÊĞúäÎÒâÇøÓòÍÏ¶¯´°¿Ú
             AttachDragHandlers(this);
 
             // ¶¨Ê±Ë¢ĞÂ£¨×Ô¶¯¿ªÆô¼à¿Ø£©
@@ -82,14 +82,14 @@ namespace StarResonanceDpsAnalysis.Forms
 
         private void RefreshTimer_Tick(object? sender, EventArgs e)
         {
-            // ¸úËæ AppConfig.Uid ¶¯Ì¬ÇĞ»»£¨ÀıÈç½øÈë½ÇÉ«ºó²ÅÄÃµ½UID£©
+            // ¸úËEAppConfig.Uid ¶¯Ì¬ÇĞ»»£¨ÀıÈç½øÈEÇÉ«ºó²ÅÄÃµ½UID£©
             if (_uid != AppConfig.Uid)
             {
                 _uid = AppConfig.Uid;
                 ResetStateAndUi();
             }
 
-            if (_uid == 0) return; // Î´ÉèÖÃ UID Ôò²»¸üĞÂ
+            if (_uid == 0) return; // Î´ÉèÖÃ UID Ôò²»¸EÂ
 
             try
             {
@@ -139,7 +139,7 @@ namespace StarResonanceDpsAnalysis.Forms
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"SkillCardStrip Ë¢ĞÂÒì³£: {ex.Message}");
+                Console.WriteLine($"SkillCardStrip Ë¢ĞÂÒE£: {ex.Message}");
             }
         }
 
@@ -185,7 +185,7 @@ namespace StarResonanceDpsAnalysis.Forms
             BeginInvoke(new Action(() =>
             {
                 _flow.Controls.Add(card);
-                ScrollToEnd(); // ×ÜÊÇ×Ô¶¯¹öµ½×îĞÂ
+                ScrollToEnd(); // ×ÜÊÇ×Ô¶¯¹öµ½×ûìÂ
             }));
         }
 
@@ -193,7 +193,7 @@ namespace StarResonanceDpsAnalysis.Forms
         {
             try
             {
-                // Í¨¹ıÉèÖÃ AutoScrollPosition »ò HorizontalScroll.Value µ½´ïÄ©Î²
+                // Í¨¹ıÉèÖÃ AutoScrollPosition »EHorizontalScroll.Value µ½´E©Î²
                 var h = _flow.HorizontalScroll;
                 int target = Math.Max(h.Minimum, h.Maximum - h.LargeChange + 1);
                 if (target < h.Minimum) target = h.Minimum;
@@ -267,7 +267,7 @@ namespace StarResonanceDpsAnalysis.Forms
                 }
             }
 
-            // ÔÊĞíÔÚ¿¨Æ¬ºÍÆä×Ó¿Ø¼şÉÏÍÏ¶¯´°¿Ú
+            // ÔÊĞúğÚ¿¨Æ¬ºÍÆä×Ó¿Ø¼şÉÏÍÏ¶¯´°¿Ú
             AttachDragHandlers(card);
 
             return card;

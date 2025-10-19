@@ -19,7 +19,7 @@ namespace StarResonanceDpsAnalysis.Forms.AuxiliaryForms
         {
             InitializeComponent();
             FormGui.SetDefaultGUI(this); // 统一设置窗体默认 GUI 风格（字体、间距、阴影等）
-            FormGui.SetColorMode(this, AppConfig.IsLight);//设置窗体颜色 // 根据配置设置窗体的颜色主题（明亮/深色）
+            FormGui.SetColorMode(this, this.pageHeader1, AppConfig.IsLight);//设置窗体颜色 // 根据配置设置窗体的颜色主题（明亮/深色）
             ToggleTableView();
         }
 

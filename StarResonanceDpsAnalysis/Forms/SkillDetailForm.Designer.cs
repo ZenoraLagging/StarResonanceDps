@@ -145,11 +145,12 @@ namespace StarResonanceDpsAnalysis.Control
             // 
             // button_AlwaysOnTop
             // 
+            button_AlwaysOnTop.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             button_AlwaysOnTop.ColorScheme = TAMode.Dark;
             button_AlwaysOnTop.Ghost = true;
             button_AlwaysOnTop.IconRatio = 0.8F;
             button_AlwaysOnTop.IconSvg = resources.GetString("button_AlwaysOnTop.IconSvg");
-            button_AlwaysOnTop.Location = new Point(628, 0);
+            button_AlwaysOnTop.Location = new Point(1051, 0);
             button_AlwaysOnTop.Name = "button_AlwaysOnTop";
             button_AlwaysOnTop.Size = new Size(33, 32);
             button_AlwaysOnTop.TabIndex = 27;

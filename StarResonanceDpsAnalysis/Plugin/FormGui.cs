@@ -25,7 +25,7 @@ namespace StarResonanceDpsAnalysis.Plugin
         /// </summary>
         /// <param name="window">父窗口</param>
         /// <param name="isLight">是否亮色</param>
-        public static void SetColorMode(AntdUI.BorderlessForm window, bool isLight)
+        public static void SetColorMode(AntdUI.BorderlessForm window, AntdUI.PageHeader? pageHeader, bool isLight)
         {
             if (window == null || window.IsDisposed) return;
             if (isLight)
@@ -35,12 +35,26 @@ namespace StarResonanceDpsAnalysis.Plugin
                 window.BackColor = Color.White;
                 window.ForeColor = Color.Black;
 
+                if (pageHeader != null)
+                {
+                    Color colorWhite = Color.FromArgb(223, 223, 223);
+                    pageHeader.BackColor = colorWhite;
+                    pageHeader.ColorScheme = TAMode.Light;
+                }
+
             }
             else
             {
                 Config.IsDark = true;// 设置为深色模式
                 window.BackColor = Color.FromArgb(31, 31, 31);
                 window.ForeColor = Color.White;
+
+                if (pageHeader != null)
+                {
+                    Color colorBack = Color.FromArgb(60, 60, 60);
+                    pageHeader.BackColor = colorBack;
+                    pageHeader.ColorScheme = TAMode.Dark;
+                }
             }
            
 

@@ -181,7 +181,7 @@ namespace StarResonanceDpsAnalysis
 
         private void SkillDiary_Load(object sender, EventArgs e)
         {
-            FormGui.SetColorMode(this, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(this, this.pageHeader1, AppConfig.IsLight);//设置窗体颜色
         }
 
         private void button3_Click(object sender, EventArgs e)

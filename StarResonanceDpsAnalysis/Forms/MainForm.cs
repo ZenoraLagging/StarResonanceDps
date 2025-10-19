@@ -31,7 +31,7 @@ namespace StarResonanceDpsAnalysis.Forms
             //ToggleTableView(); // # 表格视图切换（依配置）
             //LoadFromEmbeddedSkillConfig(); // # 预装载技能元数据 → SkillBook
 
-            FormGui.SetColorMode(this, AppConfig.IsLight); // # 主题：主窗体明暗模式
+            FormGui.SetColorMode(this, null, AppConfig.IsLight); // # 主题：主窗体明暗模式
 
             var alimamaFont_Size12Bold = HandledResources.GetHarmonyOS_SansFont(12, FontStyle.Bold);
             var alimamaFont_Size9 = HandledResources.GetHarmonyOS_SansFont(9);
@@ -82,14 +82,13 @@ namespace StarResonanceDpsAnalysis.Forms
 
             button_ThemeSwitch.Toggle = !AppConfig.IsLight; // # UI同步：按钮切换状态
 
-            FormGui.SetColorMode(this, AppConfig.IsLight);
-            FormGui.SetColorMode(FormManager.skillDiary, AppConfig.IsLight);
-
-            FormGui.SetColorMode(FormManager.skillDetailForm, AppConfig.IsLight);//设置窗体颜色
-            FormGui.SetColorMode(FormManager.settingsForm, AppConfig.IsLight);//设置窗体颜色
-            FormGui.SetColorMode(FormManager.dpsStatistics, AppConfig.IsLight);//设置窗体颜色
-            FormGui.SetColorMode(FormManager.rankingsForm, AppConfig.IsLight);//设置窗体颜色
-            FormGui.SetColorMode(FormManager.historicalBattlesForm, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(this, this.pageHeader_MainHeader, AppConfig.IsLight);
+            FormGui.SetColorMode(FormManager.skillDiary, this.pageHeader_MainHeader, AppConfig.IsLight);
+            FormGui.SetColorMode(FormManager.skillDetailForm, this.pageHeader_MainHeader, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(FormManager.settingsForm, this.pageHeader_MainHeader, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(FormManager.dpsStatistics, this.pageHeader_MainHeader, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(FormManager.rankingsForm, this.pageHeader_MainHeader, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(FormManager.historicalBattlesForm, this.pageHeader_MainHeader, AppConfig.IsLight);//设置窗体颜色
 
             // # 注意：部分窗体可能为 null 或已释放，SetColorMode 内部应做空值与IsDisposed判断方可安全调用
         }

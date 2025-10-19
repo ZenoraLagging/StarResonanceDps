@@ -299,6 +299,7 @@ namespace StarResonanceDpsAnalysis.Core
             {
                 if (attr.Id == 0 || attr.RawData == null || attr.RawData.Length == 0) continue;
                 var reader = new Google.Protobuf.CodedInputStream(attr.RawData.ToByteArray());
+                
 
                 switch (attr.Id)
                 {

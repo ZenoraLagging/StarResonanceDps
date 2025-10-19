@@ -24,7 +24,7 @@ namespace StarResonanceDpsAnalysis.Forms.ModuleForm
 
         private void ModuleExcludeForm_Load(object sender, EventArgs e)
         {
-            FormGui.SetColorMode(this, AppConfig.IsLight);//设置窗体颜色
+            FormGui.SetColorMode(this, null, AppConfig.IsLight);//设置窗体颜色
             AddExclusions();
         }
 

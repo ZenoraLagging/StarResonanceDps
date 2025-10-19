@@ -423,7 +423,7 @@ namespace StarResonanceDpsAnalysis.Forms
             var isDark = !AppConfig.IsLight;
 
             // 设置窗口主虂E
-            FormGui.SetColorMode(this, AppConfig.IsLight);
+            FormGui.SetColorMode(this, null, AppConfig.IsLight);
 
             // 竵E滤型急魈丒
             if (_dpsTrendChart != null)
