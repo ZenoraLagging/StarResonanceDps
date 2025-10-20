@@ -141,9 +141,6 @@
   <data name="Header_Current_Damage" xml:space="preserve">
     <value>Current Damage</value>
   </data>
-  <data name="Header_NpcAttackers_FullRecord" xml:space="preserve">
-    <value>Overall · NPC Attackers Ranking (NPC:{0})</value>
-  </data>
   <data name="Header_NpcAttackers_Current" xml:space="preserve">
     <value>Current · NPC Attackers Ranking (NPC:{0})</value>
   </data>
@@ -667,7 +664,7 @@
     <value>Total Healing</value>
   </data>
   <data name="SkillDetail_Label2_HPS" xml:space="preserve">
-    <value>HP/s</value>
+    <value>HPS</value>
   </data>
   <data name="SkillDetail_Label4_Healing_Crit" xml:space="preserve">
     <value>Crit Rate</value>
@@ -692,6 +689,9 @@
   </data>
   <data name="SkillDetail_Label1_Total_Damage_Taken" xml:space="preserve">
     <value>Total Damage Taken</value>
+  </data>
+  <data name="SkillDetail_Label1_Total_Damage_Taken_Shorten" xml:space="preserve">
+    <value>Total DMG Taken</value>
   </data>
   <data name="SkillDetail_Label2_DPS_Taken" xml:space="preserve">
     <value>DPS Taken</value>
@@ -774,6 +774,9 @@
   <data name="SkillDetail_HitCount" xml:space="preserve">
     <value>Hit Count</value>
   </data>
+  <data name="Header_NpcAttackers_FullRecord" xml:space="preserve">
+    <value>Full · NPC Attackers Ranking (NPC:{0})</value>
+  </data>
   <data name="App_Name" xml:space="preserve">
     <value>Don't Check My DPS</value>
   </data>
@@ -802,7 +805,7 @@
     <value>Crit Lucky Healing</value>
   </data>
   <data name="History_MaxInstantHPS_Column" xml:space="preserve">
-    <value>Max Instant HP/s</value>
+    <value>Max Instant HPS</value>
   </data>
   <data name="History_DamageTaken_Column" xml:space="preserve">
     <value>Damage Taken</value>
@@ -827,5 +830,65 @@ Do you want to restart the application now?</value>
   </data>
   <data name="Title_Skill_Breakdown" xml:space="preserve">
     <value>Skill Breakdown</value>
+  </data>
+  <data name="Label_SingleInstance" xml:space="preserve">
+    <value>Encounter</value>
+  </data>
+  <data name="Label_FullInstance" xml:space="preserve">
+    <value>Full Encounter</value>
+  </data>
+  <data name="Snapshot_Term" xml:space="preserve">
+    <value>Snapshot</value>
+  </data>
+  <data name="Full_Snapshot_Term" xml:space="preserve">
+    <value>Full SS</value>
+  </data>
+  <data name="Tooltip_CopyClipboard" xml:space="preserve">
+    <value>Copy Window To Clipboard</value>
+  </data>
+  <data name="Excel_Title" xml:space="preserve">
+    <value>Saved DPS Statistics</value>
+  </data>
+  <data name="Excel_Filename_Prefix" xml:space="preserve">
+    <value>DPS_Statistics_</value>
+  </data>
+  <data name="MessageBox_Excel_Saved_Success" xml:space="preserve">
+    <value>Data successfully exported to</value>
+  </data>
+  <data name="MessageBox_Saved_File_Title" xml:space="preserve">
+    <value>Export Success</value>
+  </data>
+  <data name="MessageBox_Excel_Saved_Error" xml:space="preserve">
+    <value>An error occurred while exporting the file.</value>
+  </data>
+  <data name="MessageBox_Failed_File_Title" xml:space="preserve">
+    <value>Export Failed</value>
+  </data>
+  <data name="Excel_Sheet_Player_Overview" xml:space="preserve">
+    <value>Player Overview</value>
+  </data>
+  <data name="SkillDetail_Label1_TotalHPS" xml:space="preserve">
+    <value>Total HPS</value>
+  </data>
+  <data name="Excel_Sheet_Skill_Detail" xml:space="preserve">
+    <value>Skill Details</value>
+  </data>
+  <data name="SkillDetail_Label1_Average_Damage" xml:space="preserve">
+    <value>Average Damage</value>
+  </data>
+  <data name="SkillDetail_SkillDPS" xml:space="preserve">
+    <value>Skill DPS</value>
+  </data>
+  <data name="Excel_Sheet_TeamSkillStatistics" xml:space="preserve">
+    <value>Team Skill Statistics</value>
+  </data>
+  <data name="SkillDetail_TotalHits" xml:space="preserve">
+    <value>Total Hits</value>
+  </data>
+  <data name="SkillDetail_TeamPercentage" xml:space="preserve">
+    <value>Team Percentage</value>
+  </data>
+  <data name="Tooltip_SaveEncounter" xml:space="preserve">
+    <value>Save Current Parse as File</value>
   </data>
 </root>

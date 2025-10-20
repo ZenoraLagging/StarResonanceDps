@@ -2,6 +2,7 @@
 using StarResonanceDpsAnalysis.Core;
 using StarResonanceDpsAnalysis.Forms;
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Numerics;
 using System.Timers;
 using System.Xml.Linq;
@@ -1173,6 +1174,23 @@ namespace StarResonanceDpsAnalysis.Plugin.DamageStatistics
             return DateTime.Now - _combatStart.Value;
         }
 
+        public TimeSpan GetEncounterTimeRemaining()
+        {
+            if (!_combatStart.HasValue) return TimeSpan.Zero;
+
+            return _lastCombatActivity.AddSeconds(AppConfig.CombatTimeClearDelaySeconds).Subtract(DateTime.Now);
+        }
+
+        public string GetFormattedRemainingDuration()
+        {
+            var ts = GetEncounterTimeRemaining();
+            if (ts < TimeSpan.Zero) ts = TimeSpan.Zero; // 极端情况下兜底
+
+            return ts.TotalHours >= 1
+                ? ts.ToString(@"hh\:mm\:ss")
+                : ts.ToString(@"mm\:ss");
+        }
+
         /// <summary>
         /// 返回整场战斗持续时间的格式化字符串：
         /// &gt;=1 小时 用 hh:mm:ss，否则用 mm:ss。
@@ -1757,7 +1775,7 @@ namespace StarResonanceDpsAnalysis.Plugin.DamageStatistics
             }
 
             // 没有 PlayerData，则用缓存字典
-            string nickname = _nicknameRequestedUids.TryGetValue(uid, out var name) ? name : "未知";
+            string nickname = _nicknameRequestedUids.TryGetValue(uid, out var name) ? name : Properties.Strings.User_Nickname;
             int combatPower = _combatPowerByUid.TryGetValue(uid, out var power) ? power : 0;
             string profession = _professionByUid.TryGetValue(uid, out var prof) ? prof : Properties.Strings.Profession_Unknown;
 
@@ -2373,13 +2391,13 @@ namespace StarResonanceDpsAnalysis.Plugin.DamageStatistics
         public ulong Uid { get; init; }
 
         /// <summary>昵称。</summary>
-        public string Nickname { get; init; } = "未知";
+        public string Nickname { get; init; } = Properties.Strings.User_Nickname;
 
         /// <summary>战力。</summary>
         public int CombatPower { get; init; }
 
         /// <summary>职业。</summary>
-        public string Profession { get; init; } = "未知";
+        public string Profession { get; init; } = Properties.Strings.Profession_Unknown;
 
         public string? SubProfession { get; init; }
 

@@ -141,9 +141,6 @@
   <data name="Header_Current_Damage" xml:space="preserve">
     <value>当前伤害</value>
   </data>
-  <data name="Header_NpcAttackers_FullRecord" xml:space="preserve">
-    <value>全程 · NPC攻击者榜 (NPC:{0})</value>
-  </data>
   <data name="Header_NpcAttackers_Current" xml:space="preserve">
     <value>当前 · NPC攻击者榜 (NPC:{0})</value>
   </data>
@@ -700,6 +697,9 @@
   <data name="SkillDetail_Label1_Total_Damage_Taken" xml:space="preserve">
     <value>总承伤</value>
   </data>
+  <data name="SkillDetail_Label1_Total_Damage_Taken_Shorten" xml:space="preserve">
+    <value>团队总承伤</value>
+  </data>
   <data name="SkillDetail_Label2_DPS_Taken" xml:space="preserve">
     <value>秒承伤</value>
   </data>
@@ -781,6 +781,9 @@
   <data name="SkillDetail_HitCount" xml:space="preserve">
     <value>命中次数</value>
   </data>
+  <data name="Header_NpcAttackers_FullRecord" xml:space="preserve">
+    <value>全程 · NPC攻击者榜 (NPC:{0})</value>
+  </data>
   <data name="App_Name" xml:space="preserve">
     <value>别查我DPS</value>
   </data>
@@ -834,5 +837,65 @@
   </data>
   <data name="Title_Skill_Breakdown" xml:space="preserve">
     <value>技能分解</value>
+  </data>
+  <data name="Label_SingleInstance" xml:space="preserve">
+    <value>单次伤害记录</value>
+  </data>
+  <data name="Label_FullInstance" xml:space="preserve">
+    <value>全程伤害记录</value>
+  </data>
+  <data name="Snapshot_Term" xml:space="preserve">
+    <value>[快照]</value>
+  </data>
+  <data name="Full_Snapshot_Term" xml:space="preserve">
+    <value>全程快照</value>
+  </data>
+  <data name="Tooltip_CopyClipboard" xml:space="preserve">
+    <value>复制到剪贴板</value>
+  </data>
+  <data name="Excel_Title" xml:space="preserve">
+    <value>保存DPS统计数据</value>
+  </data>
+  <data name="Excel_Filename_Prefix" xml:space="preserve">
+    <value>DPS统计_</value>
+  </data>
+  <data name="MessageBox_Excel_Saved_Success" xml:space="preserve">
+    <value>数据已成功导出到</value>
+  </data>
+  <data name="MessageBox_Saved_File_Title" xml:space="preserve">
+    <value>导出成功</value>
+  </data>
+  <data name="MessageBox_Excel_Saved_Error" xml:space="preserve">
+    <value>导出Excel文件时发生错误</value>
+  </data>
+  <data name="MessageBox_Failed_File_Title" xml:space="preserve">
+    <value>导出失败</value>
+  </data>
+  <data name="Excel_Sheet_Player_Overview" xml:space="preserve">
+    <value>玩家总览</value>
+  </data>
+  <data name="SkillDetail_Label1_TotalHPS" xml:space="preserve">
+    <value>总HPS</value>
+  </data>
+  <data name="Excel_Sheet_Skill_Detail" xml:space="preserve">
+    <value>技能详情</value>
+  </data>
+  <data name="SkillDetail_Label1_Average_Damage" xml:space="preserve">
+    <value>平均伤害</value>
+  </data>
+  <data name="SkillDetail_SkillDPS" xml:space="preserve">
+    <value>技能DPS</value>
+  </data>
+  <data name="Excel_Sheet_TeamSkillStatistics" xml:space="preserve">
+    <value>团队技能统计</value>
+  </data>
+  <data name="SkillDetail_TotalHits" xml:space="preserve">
+    <value>总命中次数</value>
+  </data>
+  <data name="SkillDetail_TeamPercentage" xml:space="preserve">
+    <value>团队占比</value>
+  </data>
+  <data name="Tooltip_SaveEncounter" xml:space="preserve">
+    <value>保存当前实例</value>
   </data>
 </root>

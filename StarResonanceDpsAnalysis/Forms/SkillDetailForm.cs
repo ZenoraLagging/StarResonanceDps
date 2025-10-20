@@ -591,8 +591,9 @@ namespace StarResonanceDpsAnalysis.Control
             segmented1.Items.Add(segmentedItem2);
             segmented1.Items.Add(segmentedItem3);
 
-            label3.Text = Strings.SkillDetail_Label3;
+            label1.Text = Strings.SkillDetail_Label1_TotalDamage;
             label2.Text = Strings.SkillDetail_Label2_DPS;
+            label3.Text = Strings.SkillDetail_Label3;
             label4.Text = Strings.SkillDetail_Label4_Damage_Crit;
             label5.Text = Strings.SkillDetail_Label5_Damage_Lucky;
             NumberCriticalHitsText.Text = Strings.SkillDetail_Label4_Damage_Crit;

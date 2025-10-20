@@ -438,7 +438,6 @@ namespace StarResonanceDpsAnalysis.Forms
         public static Dictionary<string, Bitmap> imgDict = new Dictionary<string, Bitmap>() // convert to resource key
         {
             { Properties.Strings.Profession_Unknown, EmptyBitmap() },
-            { Properties.Strings.SubProfession_IceRay, new Bitmap(new MemoryStream(Resources.冰魔导师)) },
             { Properties.Strings.Profession_FrostMage, new Bitmap(new MemoryStream(Resources.冰魔导师)) },
             { Properties.Strings.Profession_HeavyGuardian, new Bitmap(new MemoryStream(Resources.巨刃守护者)) },
             { Properties.Strings.Profession_VerdantOracle, new Bitmap(new MemoryStream(Resources.森语者)) },
@@ -448,6 +447,7 @@ namespace StarResonanceDpsAnalysis.Forms
             { Properties.Strings.Profession_WindKnight, new Bitmap(new MemoryStream(Resources.青岚骑士)) },
             { Properties.Strings.Profession_AegisKnight, new Bitmap(new MemoryStream(Resources.神盾骑士)) },
 
+            { Properties.Strings.SubProfession_IceRay, new Bitmap(new MemoryStream(Resources.冰魔导师)) },
             { Properties.Strings.SubProfession_Concerto, new Bitmap(new MemoryStream(Resources.灵魂乐手)) },
             { Properties.Strings.SubProfession_Iai, new Bitmap(new MemoryStream(Resources.雷影剑士)) },
             { Properties.Strings.SubProfession_MoonBlade, new Bitmap(new MemoryStream(Resources.雷影剑士)) },
@@ -620,8 +620,6 @@ namespace StarResonanceDpsAnalysis.Forms
                     string sp = Common.GetTranslatedSubProfession(p.SubProfession);
 
                     row[1].Text = $"{p.Nickname} - {sp} ({p.CombatPower})"; //TODO come back here, update subprofession when changing language
-
-
                     row[2].Text = $"{totalFmt} ({perSec}/s)";
                     row[3].Text = share;
 

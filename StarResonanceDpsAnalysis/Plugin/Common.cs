@@ -660,7 +660,7 @@ namespace StarResonanceDpsAnalysis.Plugin
                 battleTime = duration,
                 battleId= AppConfig.Uid,
                 kill,
-                subProfession= subProfession
+                subProfession
             };
 
             var resp = await Common.RequestPost(url, body);

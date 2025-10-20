@@ -82,7 +82,6 @@ namespace StarResonanceDpsAnalysis.Forms
             select1.Items.Clear();
             var sessions = FullRecord.SessionHistory?.ToList();
             if (sessions == null || sessions.Count == 0) return;
-
             foreach (var s in sessions)
             {
                 select1.Items.Add(new ComboItemFull { Snapshot = s });
@@ -109,7 +108,8 @@ namespace StarResonanceDpsAnalysis.Forms
             public override string ToString()
             {
                 var s = Snapshot;
-                return $"[全程] {s.StartedAt:MM-dd HH:mm:ss} ~ {s.EndedAt:HH:mm:ss}（{s.Duration:hh\\:mm\\:ss}）";
+                string snapshot = $"[{Strings.Snapshot_Term}]";
+                return $"{snapshot} {s.StartedAt:MM-dd HH:mm:ss} ~ {s.EndedAt:HH:mm:ss}（{s.Duration:hh\\:mm\\:ss}）";
             }
         }
 
@@ -138,7 +138,8 @@ namespace StarResonanceDpsAnalysis.Forms
         {
             DpsTableDatas.DpsTable.Clear(); // 清空旧数据
             var sb = new StringBuilder();
-            sb.AppendLine($"[快照] {snap.StartedAt:MM-dd HH:mm:ss} ~ {snap.EndedAt:HH:mm:ss}  时长: {snap.Duration}");
+            string snapshot = $"[{Strings.Snapshot_Term}]";
+            sb.AppendLine($"{snapshot} {snap.StartedAt:MM-dd HH:mm:ss} ~ {snap.EndedAt:HH:mm:ss}  时长: {snap.Duration}");
             TeamTotalDamageLabel.Text = Common.FormatWithEnglishUnits(snap.TeamTotalDamage.ToString());
             TeamTotalHealingLabel.Text = Common.FormatWithEnglishUnits(snap.TeamTotalHealing.ToString());
             TeamTotalTakenDamageLabel.Text = Common.FormatWithEnglishUnits(snap.TeamTotalTakenDamage.ToString());
@@ -152,6 +153,8 @@ namespace StarResonanceDpsAnalysis.Forms
             ? Math.Round(p.TotalDamage * 100.0 / snap.TeamTotalDamage, 1)
             : 0.0;
 
+                Debug.WriteLine(p.Profession);
+                Debug.WriteLine(p.SubProfession);
 
                 DpsTableDatas.DpsTable.Add(new DpsTable(
                    /*  1 */ p.Uid,
@@ -208,7 +211,8 @@ namespace StarResonanceDpsAnalysis.Forms
         {
             DpsTableDatas.DpsTable.Clear(); // 清空旧数据
             var sb = new StringBuilder();
-            sb.AppendLine($"[全程快照] {snap.StartedAt:MM-dd HH:mm:ss} ~ {snap.EndedAt:HH:mm:ss}  时长: {snap.Duration}");
+            string fullSnapshot = $"[{Strings.Full_Snapshot_Term}]";
+            sb.AppendLine($"{fullSnapshot} {snap.StartedAt:MM-dd HH:mm:ss} ~ {snap.EndedAt:HH:mm:ss}  时长: {snap.Duration}");
             TeamTotalDamageLabel.Text = Common.FormatWithEnglishUnits(snap.TeamTotalDamage.ToString());
             TeamTotalHealingLabel.Text = Common.FormatWithEnglishUnits(snap.TeamTotalHealing.ToString());
             TeamTotalTakenDamageLabel.Text = Common.FormatWithEnglishUnits(snap.TeamTotalTakenDamage.ToString());
@@ -325,9 +329,30 @@ namespace StarResonanceDpsAnalysis.Forms
             this.Close();
         }
 
+        private void button_SaveEncounter_Click(object sender, EventArgs e)
+        {
+
+            var list = DataExportService.GetCurrentPlayerData();
+            return;
+            var data = new List<PlayerData>();
+            // 重新渲染当前视图
+            if (segmented1.SelectIndex == 0)
+            {
+                if (select1.SelectedValue is ComboItemBattle b && b.Snapshot != null)
+                    DumpSnapshot(b.Snapshot);
+            }
+            else
+            {
+                if (select1.SelectedValue is ComboItemFull f && f.Snapshot != null)
+                    DumpFullSnapshot(f.Snapshot);
+            }
+            return;
+        }
+
         private void segmented1_SelectIndexChanged(object sender, IntEventArgs e)
         {
             DpsTableDatas.DpsTable.Clear(); // 清空旧数据
+            select1.SelectedValue = "";
             select1.Items.Clear();
             if (segmented1.SelectIndex == 0)
             {
@@ -440,8 +465,8 @@ namespace StarResonanceDpsAnalysis.Forms
             var val = select2?.SelectedIndex;
             _sortMode = val switch
             {
-                2 => SortMode.ByHealing,
-                3 => SortMode.ByTaken,
+                1 => SortMode.ByHealing,
+                2 => SortMode.ByTaken,
                 _ => SortMode.ByDamage
             };
 
@@ -460,16 +485,16 @@ namespace StarResonanceDpsAnalysis.Forms
 
         public void ApplyLocalization()
         {
-            label2.Text = Properties.Strings.TotalTreatmentLabel;
-            label3.Text = Properties.Strings.TotalDamageLabel;
-            label5.Text = Properties.Strings.History_DamageTaken_Column;
+            label2.Text = Properties.Strings.SkillDetail_Label1_TotalHealing;
+            label3.Text = Properties.Strings.SkillDetail_Label1_TotalDamage;
+            label5.Text = Properties.Strings.SkillDetail_Label1_Total_Damage_Taken_Shorten;
             label6.Text = Properties.Strings.Header_Team_Info;
 
             AntdUI.SegmentedItem segmentedItem1 = new AntdUI.SegmentedItem();
             AntdUI.SegmentedItem segmentedItem2 = new AntdUI.SegmentedItem();
 
-            segmentedItem1.Text = Properties.Strings.Header_Current_Damage;
-            segmentedItem2.Text = Properties.Strings.Header_FullRecord_Damage;
+            segmentedItem1.Text = Properties.Strings.Label_SingleInstance;
+            segmentedItem2.Text = Properties.Strings.Label_FullInstance;
 
             segmented1.Items.Clear();
             segmented1.Items.Add(segmentedItem1);

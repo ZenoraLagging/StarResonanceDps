@@ -33,6 +33,8 @@ namespace StarResonanceDpsAnalysis.Forms
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DpsStatisticsForm));
             pageHeader1 = new PageHeader();
+            button_SaveEncounter = new AntdUI.Button();
+            button_CopyClipboard = new AntdUI.Button();
             PilingModeCheckbox = new Checkbox();
             button_ThemeSwitch = new AntdUI.Button();
             button2 = new AntdUI.Button();
@@ -41,6 +43,7 @@ namespace StarResonanceDpsAnalysis.Forms
             button1 = new AntdUI.Button();
             button_Settings = new AntdUI.Button();
             panel1 = new AntdUI.Panel();
+            EncounterTimeoutText = new AntdUI.Label();
             label2 = new AntdUI.Label();
             BattleTimeText = new AntdUI.Label();
             label1 = new AntdUI.Label();
@@ -62,6 +65,8 @@ namespace StarResonanceDpsAnalysis.Forms
             // 
             pageHeader1.BackColor = Color.FromArgb(178, 178, 178);
             pageHeader1.ColorScheme = TAMode.Dark;
+            pageHeader1.Controls.Add(button_SaveEncounter);
+            pageHeader1.Controls.Add(button_CopyClipboard);
             pageHeader1.Controls.Add(PilingModeCheckbox);
             pageHeader1.Controls.Add(button_ThemeSwitch);
             pageHeader1.Controls.Add(button2);
@@ -87,14 +92,38 @@ namespace StarResonanceDpsAnalysis.Forms
             pageHeader1.TabIndex = 16;
             pageHeader1.Text = "DPS Damage Statistics Table ";
             // 
+            // button_SaveEncounter
+            // 
+            button_SaveEncounter.Dock = DockStyle.Right;
+            button_SaveEncounter.Ghost = true;
+            button_SaveEncounter.Icon = (Image)resources.GetObject("button_SaveEncounter.Icon");
+            button_SaveEncounter.Location = new Point(364, 0);
+            button_SaveEncounter.Name = "button_SaveEncounter";
+            button_SaveEncounter.Size = new Size(21, 25);
+            button_SaveEncounter.TabIndex = 28;
+            button_SaveEncounter.Click += button_SaveEncounter_Click;
+            button_SaveEncounter.MouseEnter += button_SaveEncounter_MouseEnter;
+            // 
+            // button_CopyClipboard
+            // 
+            button_CopyClipboard.Dock = DockStyle.Right;
+            button_CopyClipboard.Ghost = true;
+            button_CopyClipboard.Icon = Properties.Resources.clipboard;
+            button_CopyClipboard.Location = new Point(385, 0);
+            button_CopyClipboard.Name = "button_CopyClipboard";
+            button_CopyClipboard.Size = new Size(20, 25);
+            button_CopyClipboard.TabIndex = 21;
+            button_CopyClipboard.Click += button_CopyClipboard_Click;
+            button_CopyClipboard.MouseEnter += button_CopyClipboard_MouseEnter;
+            // 
             // PilingModeCheckbox
             // 
             PilingModeCheckbox.AutoSizeMode = TAutoSize.Width;
             PilingModeCheckbox.BackColor = Color.Transparent;
-            PilingModeCheckbox.Dock = DockStyle.Right;
+            PilingModeCheckbox.Dock = DockStyle.Left;
             PilingModeCheckbox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
             PilingModeCheckbox.ForeColor = Color.White;
-            PilingModeCheckbox.Location = new Point(318, 0);
+            PilingModeCheckbox.Location = new Point(251, 0);
             PilingModeCheckbox.Name = "PilingModeCheckbox";
             PilingModeCheckbox.Size = new Size(87, 25);
             PilingModeCheckbox.TabIndex = 17;
@@ -199,6 +228,7 @@ namespace StarResonanceDpsAnalysis.Forms
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(EncounterTimeoutText);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(BattleTimeText);
             panel1.Controls.Add(label1);
@@ -211,6 +241,17 @@ namespace StarResonanceDpsAnalysis.Forms
             panel1.Size = new Size(527, 34);
             panel1.TabIndex = 17;
             panel1.Text = "panel1";
+            // 
+            // EncounterTimeoutText
+            // 
+            EncounterTimeoutText.Dock = DockStyle.Left;
+            EncounterTimeoutText.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            EncounterTimeoutText.Location = new Point(136, 3);
+            EncounterTimeoutText.Margin = new Padding(2);
+            EncounterTimeoutText.Name = "EncounterTimeoutText";
+            EncounterTimeoutText.Size = new Size(98, 31);
+            EncounterTimeoutText.TabIndex = 21;
+            EncounterTimeoutText.Text = "Waiting...";
             // 
             // label2
             // 
@@ -409,5 +450,8 @@ namespace StarResonanceDpsAnalysis.Forms
         private AntdUI.Button NpcTakeDamageButton;
         private AntdUI.Button button_ThemeSwitch;
         private AntdUI.TooltipComponent tooltip;
+        private AntdUI.Button button_CopyClipboard;
+        private AntdUI.Label EncounterTimeoutText;
+        private AntdUI.Button button_SaveEncounter;
     }
 }

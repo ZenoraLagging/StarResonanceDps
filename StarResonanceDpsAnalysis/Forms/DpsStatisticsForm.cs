@@ -1,25 +1,25 @@
-﻿using System;
-using System.Drawing;
-using System.Security.Cryptography.Xml;
-using System.Threading.Tasks; // 引用异步任务支持（Task/async/await）
-using System.Windows.Forms;
-
-using AntdUI; // 引用 AntdUI 组件库（第三方 UI 控件/样式）
+﻿using AntdUI; // 引用 AntdUI 组件库（第三方 UI 控件/样式）
+using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using StarResonanceDpsAnalysis.Control; // 引用项目内的 UI 控制/辅助类命名空间
 using StarResonanceDpsAnalysis.Effects;
+using StarResonanceDpsAnalysis.Forms.ModuleForm;
 using StarResonanceDpsAnalysis.Forms.PopUp; // 引用弹窗相关窗体/组件命名空间
 using StarResonanceDpsAnalysis.Plugin; // 引用项目插件层通用命名空间
 using StarResonanceDpsAnalysis.Plugin.DamageStatistics; // 引用伤害统计插件命名空间（含 FullRecord、StatisticData 等）
 using StarResonanceDpsAnalysis.Plugin.LaunchFunction; // 引用启动相关功能（加载技能配置等）
 using StarResonanceDpsAnalysis.Properties; // 引用资源（图标/本地化字符串等）
-
-using static StarResonanceDpsAnalysis.Control.SkillDetailForm;
+using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Security.Cryptography.Xml;
+using System.Security.Cryptography.Xml;
+using System.Threading.Tasks; // 引用异步任务支持（Task/async/await）
+using System.Windows.Forms;
+using static StarResonanceDpsAnalysis.Control.SkillDetailForm;
 using Button = AntdUI.Button;
-using DocumentFormat.OpenXml.Office2010.Excel;
 using Color = System.Drawing.Color;
-using StarResonanceDpsAnalysis.Forms.ModuleForm;
-using DocumentFormat.OpenXml.Drawing;
 
 namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代码所在位置
 { // 命名空间开始
@@ -85,21 +85,21 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
 
 
         // # 屏幕分辨率缩放判定
-/*        private static float GetPrimaryResolutionScale() // 依据主屏高度返回推荐缩放比例
-        {
-            try // 防御：获取屏幕信息可能在某些环境异常
-            { // try 开始
-                var bounds = Screen.PrimaryScreen?.Bounds ?? new Rectangle(0, 0, 1920, 1080); // 获取主屏尺寸，失败则默认 1080p
-                if (bounds.Height >= 2160) return 2.0f;       // 4K 屏：建议缩放 2.0
-                if (bounds.Height >= 1440) return 1.3333f;    // 2K 屏：建议缩放 1.3333
-                return 1.0f;                                   // 1080p：不缩放
-            } // try 结束
-            catch // 捕获任何异常
-            { // catch 开始
-                return 1.0f; // 异常时安全返回 1.0（不缩放）
-            } // catch 结束
-        }
-*/
+        /*        private static float GetPrimaryResolutionScale() // 依据主屏高度返回推荐缩放比例
+                {
+                    try // 防御：获取屏幕信息可能在某些环境异常
+                    { // try 开始
+                        var bounds = Screen.PrimaryScreen?.Bounds ?? new Rectangle(0, 0, 1920, 1080); // 获取主屏尺寸，失败则默认 1080p
+                        if (bounds.Height >= 2160) return 2.0f;       // 4K 屏：建议缩放 2.0
+                        if (bounds.Height >= 1440) return 1.3333f;    // 2K 屏：建议缩放 1.3333
+                        return 1.0f;                                   // 1080p：不缩放
+                    } // try 结束
+                    catch // 捕获任何异常
+                    { // catch 开始
+                        return 1.0f; // 异常时安全返回 1.0（不缩放）
+                    } // catch 结束
+                }
+        */
         // # 窗体加载事件：启动抓包
         private void DpsStatistics_Load(object sender, EventArgs e) // 窗体 Load 事件处理
         {
@@ -142,7 +142,7 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
             var info = StatisticData._manager.GetPlayerBasicInfo(uid);
             FormManager.skillDetailForm.GetPlayerInfo(info.Nickname, info.CombatPower, info.Profession);
 
-            StatisticData._manager.CopyPlayerDPSInfo(uid);
+            //StatisticData._manager.CopyPlayerDPSInfo(uid);
 
             if (FormManager.showTotal) { FormManager.skillDetailForm.ContextType = DetailContextType.FullRecord; FormManager.skillDetailForm.SnapshotStartTime = null; }
             else { FormManager.skillDetailForm.ContextType = DetailContextType.Current; FormManager.skillDetailForm.SnapshotStartTime = null; }
@@ -160,6 +160,33 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
             Activate();
             BringToFront();
 
+        }
+
+
+        private void button_SaveEncounter_Click(object sender, EventArgs e)
+        {
+            if (!DataExportService.HasDataToExport()) return;
+
+            var list = DataExportService.GetCurrentPlayerData();
+
+            if (list != null && list.Count() > 0)
+            {
+                DataExportService.ExportToExcel(list);
+            }
+            return;
+        }
+
+        private void button_CopyClipboard_Click(object sender, EventArgs e)
+        {
+            System.Drawing.Rectangle bounds = this.Bounds;
+            using (Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
+            {
+                using (Graphics g = Graphics.FromImage(bitmap))
+                {
+                    g.CopyFromScreen(new System.Drawing.Point(bounds.Left, bounds.Top), System.Drawing.Point.Empty, bounds.Size);
+                }
+                Clipboard.SetImage(bitmap);
+            }
         }
 
         #region 切换显示类型（支持单次/全程伤害） // 折叠：视图标签与切换逻辑
@@ -235,8 +262,11 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
             }
 
             var duration = StatisticData._manager.GetFormattedCombatDuration();
+            var remaining = StatisticData._manager.GetFormattedRemainingDuration();
             if (FormManager.showTotal) duration = FullRecord.GetEffectiveDurationString();
             BattleTimeText.Text = duration;
+            if (StatisticData._manager.IsInCombat)
+                EncounterTimeoutText.Text = remaining;
         }
 
 
@@ -249,6 +279,7 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
         {
             // # 清空：触发 HandleClearData（停止图表刷新→清空数据→重置图表）
             HandleClearData(); // 调用清空处理
+            EncounterTimeoutText.Text = "Waiting...";
         }
 
 
@@ -400,6 +431,16 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
         private void button_ThemeSwitch_MouseEnter(object sender, EventArgs e)
         {
             ToolTip(button_ThemeSwitch, Properties.Strings.Tooltip_SwitchTheme);
+        }
+
+        private void button_CopyClipboard_MouseEnter(object sender, EventArgs e)
+        {
+            ToolTip(button_CopyClipboard, Properties.Strings.Tooltip_CopyClipboard);
+        }
+
+        private void button_SaveEncounter_MouseEnter(object sender, EventArgs e)
+        {
+            ToolTip(button_SaveEncounter, Properties.Strings.Tooltip_SaveEncounter);
         }
 
         // 打桩模式定时逻辑
@@ -679,14 +720,14 @@ namespace StarResonanceDpsAnalysis.Forms // 定义命名空间：窗体相关代
 
         }
 
-/*        private void EnsureTopMost()
-        {
-            TopMost = false;   // 先关再开，强制触发样式刷新
-            TopMost = true;
-            Activate();
-            BringToFront();
-            button_AlwaysOnTop.Toggle = TopMost; // 同步你的按钮状态
-        }*/
+        /*        private void EnsureTopMost()
+                {
+                    TopMost = false;   // 先关再开，强制触发样式刷新
+                    TopMost = true;
+                    Activate();
+                    BringToFront();
+                    button_AlwaysOnTop.Toggle = TopMost; // 同步你的按钮状态
+                }*/
 
         private void DamageType_Click(object sender, EventArgs e)
         {

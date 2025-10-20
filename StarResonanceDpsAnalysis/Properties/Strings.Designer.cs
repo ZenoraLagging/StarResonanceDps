@@ -97,6 +97,60 @@ namespace StarResonanceDpsAnalysis.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DPS统计_.
+        /// </summary>
+        internal static string Excel_Filename_Prefix {
+            get {
+                return ResourceManager.GetString("Excel_Filename_Prefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 玩家总览.
+        /// </summary>
+        internal static string Excel_Sheet_Player_Overview {
+            get {
+                return ResourceManager.GetString("Excel_Sheet_Player_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 技能详情.
+        /// </summary>
+        internal static string Excel_Sheet_Skill_Detail {
+            get {
+                return ResourceManager.GetString("Excel_Sheet_Skill_Detail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 团队技能统计.
+        /// </summary>
+        internal static string Excel_Sheet_TeamSkillStatistics {
+            get {
+                return ResourceManager.GetString("Excel_Sheet_TeamSkillStatistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 保存DPS统计数据.
+        /// </summary>
+        internal static string Excel_Title {
+            get {
+                return ResourceManager.GetString("Excel_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 全程快照.
+        /// </summary>
+        internal static string Full_Snapshot_Term {
+            get {
+                return ResourceManager.GetString("Full_Snapshot_Term", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 当前伤害.
         /// </summary>
         internal static string Header_Current_Damage {
@@ -304,6 +358,24 @@ namespace StarResonanceDpsAnalysis.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 全程伤害记录.
+        /// </summary>
+        internal static string Label_FullInstance {
+            get {
+                return ResourceManager.GetString("Label_FullInstance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 单次伤害记录.
+        /// </summary>
+        internal static string Label_SingleInstance {
+            get {
+                return ResourceManager.GetString("Label_SingleInstance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 伤害参考.
         /// </summary>
         internal static string Menu_DamageReference {
@@ -381,6 +453,42 @@ namespace StarResonanceDpsAnalysis.Properties {
         internal static string Menu_SkillDiary {
             get {
                 return ResourceManager.GetString("Menu_SkillDiary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 导出Excel文件时发生错误.
+        /// </summary>
+        internal static string MessageBox_Excel_Saved_Error {
+            get {
+                return ResourceManager.GetString("MessageBox_Excel_Saved_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 数据已成功导出到.
+        /// </summary>
+        internal static string MessageBox_Excel_Saved_Success {
+            get {
+                return ResourceManager.GetString("MessageBox_Excel_Saved_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 导出失败.
+        /// </summary>
+        internal static string MessageBox_Failed_File_Title {
+            get {
+                return ResourceManager.GetString("MessageBox_Failed_File_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 导出成功.
+        /// </summary>
+        internal static string MessageBox_Saved_File_Title {
+            get {
+                return ResourceManager.GetString("MessageBox_Saved_File_Title", resourceCulture);
             }
         }
         
@@ -1583,11 +1691,29 @@ namespace StarResonanceDpsAnalysis.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 平均伤害.
+        /// </summary>
+        internal static string SkillDetail_Label1_Average_Damage {
+            get {
+                return ResourceManager.GetString("SkillDetail_Label1_Average_Damage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 总承伤.
         /// </summary>
         internal static string SkillDetail_Label1_Total_Damage_Taken {
             get {
                 return ResourceManager.GetString("SkillDetail_Label1_Total_Damage_Taken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 团队总承伤.
+        /// </summary>
+        internal static string SkillDetail_Label1_Total_Damage_Taken_Shorten {
+            get {
+                return ResourceManager.GetString("SkillDetail_Label1_Total_Damage_Taken_Shorten", resourceCulture);
             }
         }
         
@@ -1606,6 +1732,15 @@ namespace StarResonanceDpsAnalysis.Properties {
         internal static string SkillDetail_Label1_TotalHealing {
             get {
                 return ResourceManager.GetString("SkillDetail_Label1_TotalHealing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 总HPS.
+        /// </summary>
+        internal static string SkillDetail_Label1_TotalHPS {
+            get {
+                return ResourceManager.GetString("SkillDetail_Label1_TotalHPS", resourceCulture);
             }
         }
         
@@ -1934,6 +2069,15 @@ namespace StarResonanceDpsAnalysis.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 技能DPS.
+        /// </summary>
+        internal static string SkillDetail_SkillDPS {
+            get {
+                return ResourceManager.GetString("SkillDetail_SkillDPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 技能名.
         /// </summary>
         internal static string SkillDetail_SkillName {
@@ -1943,11 +2087,38 @@ namespace StarResonanceDpsAnalysis.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 团队占比.
+        /// </summary>
+        internal static string SkillDetail_TeamPercentage {
+            get {
+                return ResourceManager.GetString("SkillDetail_TeamPercentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DPS/秒.
         /// </summary>
         internal static string SkillDetail_TotalDps {
             get {
                 return ResourceManager.GetString("SkillDetail_TotalDps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 总命中次数.
+        /// </summary>
+        internal static string SkillDetail_TotalHits {
+            get {
+                return ResourceManager.GetString("SkillDetail_TotalHits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [快照].
+        /// </summary>
+        internal static string Snapshot_Term {
+            get {
+                return ResourceManager.GetString("Snapshot_Term", resourceCulture);
             }
         }
         
@@ -2132,11 +2303,29 @@ namespace StarResonanceDpsAnalysis.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 复制到剪贴板.
+        /// </summary>
+        internal static string Tooltip_CopyClipboard {
+            get {
+                return ResourceManager.GetString("Tooltip_CopyClipboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 最小化.
         /// </summary>
         internal static string Tooltip_Minimize {
             get {
                 return ResourceManager.GetString("Tooltip_Minimize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 保存当前实例.
+        /// </summary>
+        internal static string Tooltip_SaveEncounter {
+            get {
+                return ResourceManager.GetString("Tooltip_SaveEncounter", resourceCulture);
             }
         }
         

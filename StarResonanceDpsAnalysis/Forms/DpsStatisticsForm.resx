@@ -117,6 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button_SaveEncounter.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAANNJREFUSEvd
+        ldENgzAMRBmFUToKm3QURmGUjnKVUWzBo4eS/rXv7zj7rMgQpulvkDRLWjXGS9KTWR+RtLF7gBg0M/NE
+        KwoeTe+w7kg7dfbdD2EgtaN7CAOp7+AQ+jsM7NxJhWHIdfHZcdBLx5ANGTEkuJ4iO/h8FJtjjUFsjjUG
+        sTk02g5yaXfEnhaXU9DoDE9q2fmggp1B7WAddUGD2sE66oIGtYN11AUNagfrqAsa1A7WURdp5CtnC8Gx
+        Lq5629dx74ywMj8GfPPLJPHtnC7A3+cNMwBmAjnEv6QAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="button2.IconSvg" xml:space="preserve">
     <value>&lt;svg t="1755048146861" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8818" width="200" height="200"&gt;&lt;path d="M65.23884 456.152041 958.760137 456.152041l0 111.695918L65.23884 567.847959 65.23884 456.152041z" fill="#ffffff" p-id="8819"&gt;&lt;/path&gt;&lt;/svg&gt;</value>
   </data>
@@ -135,7 +145,6 @@
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>355, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="NpcTakeDamageButton.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAoAAAAHCCAYAAAB/tXjZAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m

@@ -69,10 +69,11 @@
             pageHeader1.DividerThickness = 2F;
             pageHeader1.Dock = DockStyle.Top;
             pageHeader1.Location = new Point(0, 0);
+            pageHeader1.Margin = new Padding(2);
             pageHeader1.MaximizeBox = false;
             pageHeader1.Mode = AntdUI.TAMode.Dark;
             pageHeader1.Name = "pageHeader1";
-            pageHeader1.Size = new Size(1130, 52);
+            pageHeader1.Size = new Size(753, 35);
             pageHeader1.TabIndex = 29;
             pageHeader1.Text = "";
             // 
@@ -81,10 +82,11 @@
             label1.BackColor = Color.Transparent;
             label1.ColorScheme = AntdUI.TAMode.Dark;
             label1.Dock = DockStyle.Fill;
-            label1.Font = new Font("SAO UI TT", 12F);
+            label1.Font = new Font("Microsoft Sans Serif", 12F);
             label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(2);
             label1.Name = "label1";
-            label1.Size = new Size(1130, 52);
+            label1.Size = new Size(753, 35);
             label1.TabIndex = 26;
             label1.Text = "Historical Battles";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -96,12 +98,13 @@
             panel6.Controls.Add(button1);
             panel6.Controls.Add(button3);
             panel6.Dock = DockStyle.Bottom;
-            panel6.Location = new Point(0, 1016);
+            panel6.Location = new Point(0, 677);
+            panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
             panel6.Radius = 3;
             panel6.Shadow = 6;
             panel6.ShadowAlign = AntdUI.TAlignMini.Top;
-            panel6.Size = new Size(1130, 106);
+            panel6.Size = new Size(753, 71);
             panel6.TabIndex = 33;
             panel6.Text = "panel6";
             // 
@@ -111,14 +114,15 @@
             select2.DropDownTextAlign = AntdUI.TAlign.Top;
             select2.Items.AddRange(new object[] { Properties.Strings.SkillDetail_Select1_Item_SortByDamage, Properties.Strings.SkillDetail_Select1_Item_SortByHealing, Properties.Strings.SkillDetail_Select1_Item_SortByDamageTaken });
             select2.List = true;
-            select2.Location = new Point(881, 34);
+            select2.Location = new Point(587, 23);
+            select2.Margin = new Padding(2);
             select2.Name = "select2";
             select2.Placement = AntdUI.TAlignFrom.Top;
             select2.Radius = 3;
             select2.SelectedIndex = 0;
             select2.SelectedValue = Properties.Strings.SkillDetail_Select1_Item_SortByDamage;
             select2.SelectionStart = 5;
-            select2.Size = new Size(237, 47);
+            select2.Size = new Size(158, 31);
             select2.TabIndex = 29;
             select2.Text = Properties.Strings.SkillDetail_Select1_Item_SortByDamage;
             select2.SelectedIndexChanged += select2_SelectedIndexChanged;
@@ -131,9 +135,10 @@
             button1.IconHover = Properties.Resources.flushed_hover;
             button1.IconPosition = AntdUI.TAlignMini.None;
             button1.IconRatio = 1.5F;
-            button1.Location = new Point(450, 9);
+            button1.Location = new Point(300, 6);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
-            button1.Size = new Size(57, 98);
+            button1.Size = new Size(38, 65);
             button1.TabIndex = 28;
             button1.Click += button1_Click;
             // 
@@ -145,9 +150,10 @@
             button3.IconHover = Properties.Resources.cancel_hover;
             button3.IconPosition = AntdUI.TAlignMini.None;
             button3.IconRatio = 1.5F;
-            button3.Location = new Point(621, 11);
+            button3.Location = new Point(414, 7);
+            button3.Margin = new Padding(2);
             button3.Name = "button3";
-            button3.Size = new Size(57, 94);
+            button3.Size = new Size(38, 63);
             button3.TabIndex = 1;
             button3.Click += button3_Click;
             // 
@@ -156,11 +162,12 @@
             select1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             select1.DropDownTextAlign = AntdUI.TAlign.Bottom;
             select1.List = true;
-            select1.Location = new Point(551, 19);
+            select1.Location = new Point(367, 13);
+            select1.Margin = new Padding(2);
             select1.Name = "select1";
             select1.Placement = AntdUI.TAlignFrom.Bottom;
             select1.Radius = 3;
-            select1.Size = new Size(567, 56);
+            select1.Size = new Size(378, 37);
             select1.TabIndex = 28;
             select1.SelectedIndexChanged += select1_SelectedIndexChanged;
             // 
@@ -168,12 +175,13 @@
             // 
             panel3.BackColor = Color.Transparent;
             panel3.Controls.Add(segmented1);
-            panel3.Location = new Point(12, 10);
+            panel3.Location = new Point(8, 7);
+            panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
             panel3.Radius = 500;
             panel3.Shadow = 6;
             panel3.ShadowOpacityHover = 0F;
-            panel3.Size = new Size(496, 65);
+            panel3.Size = new Size(331, 43);
             panel3.TabIndex = 34;
             panel3.Text = "panel3";
             // 
@@ -183,18 +191,19 @@
             segmented1.BarPosition = AntdUI.TAlignMini.Bottom;
             segmented1.BarSize = 0F;
             segmented1.Dock = DockStyle.Fill;
-            segmented1.Font = new Font("HarmonyOS Sans SC", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            segmented1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
             segmented1.Full = true;
             segmented1.IconGap = 0F;
-            segmentedItem1.Text = Properties.Strings.Header_Current_Damage;
-            segmentedItem2.Text = Properties.Strings.Header_FullRecord_Damage;
+            segmentedItem1.Text = "单次伤害记录";
+            segmentedItem2.Text = "全程伤害记录";
             segmented1.Items.Add(segmentedItem1);
             segmented1.Items.Add(segmentedItem2);
-            segmented1.Location = new Point(9, 9);
+            segmented1.Location = new Point(6, 6);
+            segmented1.Margin = new Padding(2);
             segmented1.Name = "segmented1";
             segmented1.Round = true;
             segmented1.SelectIndex = 0;
-            segmented1.Size = new Size(478, 47);
+            segmented1.Size = new Size(319, 31);
             segmented1.TabIndex = 16;
             segmented1.Text = "segmented1";
             segmented1.SelectIndexChanged += segmented1_SelectIndexChanged;
@@ -206,14 +215,15 @@
             table_DpsDetailDataTable.Dock = DockStyle.Fill;
             table_DpsDetailDataTable.EmptyImage = Properties.Resources.cancel_hover;
             table_DpsDetailDataTable.FixedHeader = false;
-            table_DpsDetailDataTable.Font = new Font("HarmonyOS Sans SC", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            table_DpsDetailDataTable.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             table_DpsDetailDataTable.Gap = 8;
             table_DpsDetailDataTable.Gaps = new Size(8, 8);
             table_DpsDetailDataTable.Location = new Point(0, 0);
+            table_DpsDetailDataTable.Margin = new Padding(2);
             table_DpsDetailDataTable.Name = "table_DpsDetailDataTable";
             table_DpsDetailDataTable.RowHeight = 40;
             table_DpsDetailDataTable.RowSelectedBg = Color.FromArgb(174, 212, 251);
-            table_DpsDetailDataTable.Size = new Size(1130, 724);
+            table_DpsDetailDataTable.Size = new Size(753, 480);
             table_DpsDetailDataTable.TabIndex = 35;
             table_DpsDetailDataTable.Text = "table1";
             table_DpsDetailDataTable.CellClick += table_DpsDetailDataTable_CellClick;
@@ -224,7 +234,8 @@
             splitter1.CollapsePanel = AntdUI.Splitter.ADCollapsePanel.Panel1;
             splitter1.Dock = DockStyle.Fill;
             splitter1.FixedPanel = FixedPanel.Panel1;
-            splitter1.Location = new Point(0, 52);
+            splitter1.Location = new Point(0, 35);
+            splitter1.Margin = new Padding(2);
             splitter1.Name = "splitter1";
             splitter1.Orientation = Orientation.Horizontal;
             // 
@@ -239,8 +250,8 @@
             // 
             splitter1.Panel2.BackColor = Color.White;
             splitter1.Panel2.Controls.Add(table_DpsDetailDataTable);
-            splitter1.Size = new Size(1130, 964);
-            splitter1.SplitterDistance = 234;
+            splitter1.Size = new Size(753, 642);
+            splitter1.SplitterDistance = 156;
             splitter1.SplitterWidth = 6;
             splitter1.TabIndex = 36;
             // 
@@ -256,10 +267,11 @@
             panel1.Controls.Add(TeamTotalDamageLabel);
             panel1.Controls.Add(TeamTotalHealingLabel);
             panel1.Controls.Add(TeamTotalTakenDamageLabel);
-            panel1.Location = new Point(21, 82);
+            panel1.Location = new Point(14, 55);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Shadow = 6;
-            panel1.Size = new Size(1097, 152);
+            panel1.Size = new Size(731, 101);
             panel1.TabIndex = 35;
             panel1.Text = "panel1";
             // 
@@ -268,10 +280,11 @@
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label5.BackColor = Color.Transparent;
             label5.ColorScheme = AntdUI.TAMode.Dark;
-            label5.Font = new Font("HarmonyOS Sans SC", 9F);
-            label5.Location = new Point(810, 71);
+            label5.Font = new Font("Microsoft Sans Serif", 9F);
+            label5.Location = new Point(540, 47);
+            label5.Margin = new Padding(2);
             label5.Name = "label5";
-            label5.Size = new Size(123, 45);
+            label5.Size = new Size(82, 30);
             label5.TabIndex = 26;
             label5.Text = "团队总承伤";
             // 
@@ -280,10 +293,11 @@
             label2.Anchor = AnchorStyles.Top;
             label2.BackColor = Color.Transparent;
             label2.ColorScheme = AntdUI.TAMode.Dark;
-            label2.Font = new Font("HarmonyOS Sans SC", 9F);
-            label2.Location = new Point(409, 71);
+            label2.Font = new Font("Microsoft Sans Serif", 9F);
+            label2.Location = new Point(273, 47);
+            label2.Margin = new Padding(2);
             label2.Name = "label2";
-            label2.Size = new Size(115, 45);
+            label2.Size = new Size(77, 30);
             label2.TabIndex = 24;
             label2.Text = "团队总治疗";
             // 
@@ -291,10 +305,11 @@
             // 
             label3.BackColor = Color.Transparent;
             label3.ColorScheme = AntdUI.TAMode.Dark;
-            label3.Font = new Font("HarmonyOS Sans SC", 9F);
-            label3.Location = new Point(22, 71);
+            label3.Font = new Font("Microsoft Sans Serif", 9F);
+            label3.Location = new Point(15, 47);
+            label3.Margin = new Padding(2);
             label3.Name = "label3";
-            label3.Size = new Size(114, 45);
+            label3.Size = new Size(76, 30);
             label3.TabIndex = 22;
             label3.Text = "团队总伤害";
             // 
@@ -303,10 +318,11 @@
             label6.Anchor = AnchorStyles.Top;
             label6.BackColor = Color.Transparent;
             label6.ColorScheme = AntdUI.TAMode.Dark;
-            label6.Font = new Font("HarmonyOS Sans SC Medium", 10F, FontStyle.Bold);
-            label6.Location = new Point(402, 22);
+            label6.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold);
+            label6.Location = new Point(268, 15);
+            label6.Margin = new Padding(2);
             label6.Name = "label6";
-            label6.Size = new Size(271, 30);
+            label6.Size = new Size(181, 20);
             label6.TabIndex = 22;
             label6.Text = "团队信息";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -315,10 +331,11 @@
             // 
             TeamTotalDamageLabel.BackColor = Color.Transparent;
             TeamTotalDamageLabel.ColorScheme = AntdUI.TAMode.Dark;
-            TeamTotalDamageLabel.Font = new Font("SAO Welcome TT", 10.499999F);
-            TeamTotalDamageLabel.Location = new Point(114, 78);
+            TeamTotalDamageLabel.Font = new Font("Microsoft Sans Serif", 10.499999F);
+            TeamTotalDamageLabel.Location = new Point(76, 52);
+            TeamTotalDamageLabel.Margin = new Padding(2);
             TeamTotalDamageLabel.Name = "TeamTotalDamageLabel";
-            TeamTotalDamageLabel.Size = new Size(174, 30);
+            TeamTotalDamageLabel.Size = new Size(116, 20);
             TeamTotalDamageLabel.TabIndex = 23;
             TeamTotalDamageLabel.Text = "0";
             TeamTotalDamageLabel.TextAlign = ContentAlignment.MiddleRight;
@@ -328,10 +345,11 @@
             TeamTotalHealingLabel.Anchor = AnchorStyles.Top;
             TeamTotalHealingLabel.BackColor = Color.Transparent;
             TeamTotalHealingLabel.ColorScheme = AntdUI.TAMode.Dark;
-            TeamTotalHealingLabel.Font = new Font("SAO Welcome TT", 10.499999F);
-            TeamTotalHealingLabel.Location = new Point(499, 78);
+            TeamTotalHealingLabel.Font = new Font("Microsoft Sans Serif", 10.499999F);
+            TeamTotalHealingLabel.Location = new Point(333, 52);
+            TeamTotalHealingLabel.Margin = new Padding(2);
             TeamTotalHealingLabel.Name = "TeamTotalHealingLabel";
-            TeamTotalHealingLabel.Size = new Size(174, 30);
+            TeamTotalHealingLabel.Size = new Size(116, 20);
             TeamTotalHealingLabel.TabIndex = 25;
             TeamTotalHealingLabel.Text = "0";
             TeamTotalHealingLabel.TextAlign = ContentAlignment.MiddleRight;
@@ -341,26 +359,28 @@
             TeamTotalTakenDamageLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TeamTotalTakenDamageLabel.BackColor = Color.Transparent;
             TeamTotalTakenDamageLabel.ColorScheme = AntdUI.TAMode.Dark;
-            TeamTotalTakenDamageLabel.Font = new Font("SAO Welcome TT", 10.499999F);
-            TeamTotalTakenDamageLabel.Location = new Point(902, 78);
+            TeamTotalTakenDamageLabel.Font = new Font("Microsoft Sans Serif", 10.499999F);
+            TeamTotalTakenDamageLabel.Location = new Point(601, 52);
+            TeamTotalTakenDamageLabel.Margin = new Padding(2);
             TeamTotalTakenDamageLabel.Name = "TeamTotalTakenDamageLabel";
-            TeamTotalTakenDamageLabel.Size = new Size(174, 30);
+            TeamTotalTakenDamageLabel.Size = new Size(116, 20);
             TeamTotalTakenDamageLabel.TabIndex = 27;
             TeamTotalTakenDamageLabel.Text = "0";
             TeamTotalTakenDamageLabel.TextAlign = ContentAlignment.MiddleRight;
             // 
             // HistoricalBattlesForm
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
-            ClientSize = new Size(1130, 1122);
+            ClientSize = new Size(753, 748);
             Controls.Add(splitter1);
             Controls.Add(panel6);
             Controls.Add(pageHeader1);
             Dark = true;
             EnableHitTest = false;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(2);
             Mode = AntdUI.TAMode.Dark;
             Name = "HistoricalBattlesForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -399,5 +419,6 @@
         private AntdUI.Label TeamTotalTakenDamageLabel;
         private AntdUI.Label label5;
         private AntdUI.Select select2;
+        private AntdUI.Button button_SaveEncounter;
     }
 }
